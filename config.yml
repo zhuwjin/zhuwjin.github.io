@@ -50,15 +50,15 @@ params:
         safari_pinned_tab: "<link / abs url>"
 
     label:
-        text: "Home"
-        icon: "https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/emoji_pig.png"
+        text: "锦酱的博客"
+        icon: ""
         iconHeight: 35
 
     # profile-mode
     profileMode:
         enabled: true # needs to be explicitly set
         title: 锦酱
-        subtitle: "show me your code"
+        subtitle: "你追番更新啦!"
         imageUrl: "https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/mutx.png"
         imageWidth: 120
         imageHeight: 120
