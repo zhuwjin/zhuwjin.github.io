@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: jinjiang.lift/sitemap.xml
+Sitemap: jinjiang.life/sitemap.xml
