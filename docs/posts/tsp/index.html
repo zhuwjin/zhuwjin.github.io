@@ -3,11 +3,12 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>第一篇博客 | 锦酱的博客</title>
+<title>Tsp问题 | 锦酱的博客</title>
 <meta name=keywords content>
-<meta name=description content="这是第一篇博客哟！">
+<meta name=description content="TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。
+动态规划法求TSP问题 贪心法求TSP问题 蛮力法求TSP问题 ">
 <meta name=author content="Me">
-<link rel=canonical href=https://jinjiang.life/posts/first/>
+<link rel=canonical href=https://jinjiang.life/posts/tsp/>
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
@@ -25,18 +26,20 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-123-45','auto'),ga('send','pageview'))</script><meta property="og:title" content="第一篇博客">
-<meta property="og:description" content="这是第一篇博客哟！">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-123-45','auto'),ga('send','pageview'))</script><meta property="og:title" content="Tsp问题">
+<meta property="og:description" content="TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。
+动态规划法求TSP问题 贪心法求TSP问题 蛮力法求TSP问题 ">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jinjiang.life/posts/first/"><meta property="og:image" content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-11-22T17:48:53+08:00">
-<meta property="article:modified_time" content="2021-11-22T17:48:53+08:00"><meta property="og:site_name" content="锦酱的博客">
+<meta property="og:url" content="https://jinjiang.life/posts/tsp/"><meta property="og:image" content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-11-22T21:10:24+08:00">
+<meta property="article:modified_time" content="2021-11-22T21:10:24+08:00"><meta property="og:site_name" content="锦酱的博客">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
-<meta name=twitter:title content="第一篇博客">
-<meta name=twitter:description content="这是第一篇博客哟！">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"第一篇博客","item":"https://jinjiang.life/posts/first/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"第一篇博客","name":"第一篇博客","description":"这是第一篇博客哟！","keywords":[],"articleBody":"这是第一篇博客哟！\n","wordCount":"1","inLanguage":"zh","datePublished":"2021-11-22T17:48:53+08:00","dateModified":"2021-11-22T17:48:53+08:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/first/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
+<meta name=twitter:title content="Tsp问题">
+<meta name=twitter:description content="TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。
+动态规划法求TSP问题 贪心法求TSP问题 蛮力法求TSP问题 ">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"Tsp问题","item":"https://jinjiang.life/posts/tsp/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Tsp问题","name":"Tsp问题","description":"TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。\n动态规划法求TSP问题 贪心法求TSP问题 蛮力法求TSP问题 ","keywords":[],"articleBody":"TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。\n动态规划法求TSP问题 贪心法求TSP问题 蛮力法求TSP问题 ","wordCount":"5","inLanguage":"zh","datePublished":"2021-11-22T21:10:24+08:00","dateModified":"2021-11-22T21:10:24+08:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/tsp/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -68,19 +71,41 @@
 <header class=post-header>
 <div class=breadcrumbs><a href=https://jinjiang.life>主页</a>&nbsp;»&nbsp;<a href=https://jinjiang.life/posts/>Posts</a></div>
 <h1 class=post-title>
-第一篇博客
+Tsp问题
 </h1>
-<div class=post-meta><span title="2021-11-22 17:48:53 +0800 CST">November 22, 2021</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Me
+<div class=post-meta><span title="2021-11-22 21:10:24 +0800 CST">November 22, 2021</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Me
 </div>
-</header>
-<div class=post-content><p>这是第一篇博客哟！</p>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>目录</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#tsp%e9%97%ae%e9%a2%98 aria-label=TSP问题>TSP问题</a></li>
+<li>
+<a href=#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e6%b3%95%e6%b1%82tsp%e9%97%ae%e9%a2%98 aria-label=动态规划法求TSP问题>动态规划法求TSP问题</a></li>
+<li>
+<a href=#%e8%b4%aa%e5%bf%83%e6%b3%95%e6%b1%82tsp%e9%97%ae%e9%a2%98 aria-label=贪心法求TSP问题>贪心法求TSP问题</a></li>
+<li>
+<a href=#%e8%9b%ae%e5%8a%9b%e6%b3%95%e6%b1%82tsp%e9%97%ae%e9%a2%98 aria-label=蛮力法求TSP问题>蛮力法求TSP问题</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h3 id=tsp问题>TSP问题<a hidden class=anchor aria-hidden=true href=#tsp问题>#</a></h3>
+<p>Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。</p>
+<h3 id=动态规划法求tsp问题>动态规划法求TSP问题<a hidden class=anchor aria-hidden=true href=#动态规划法求tsp问题>#</a></h3>
+<h3 id=贪心法求tsp问题>贪心法求TSP问题<a hidden class=anchor aria-hidden=true href=#贪心法求tsp问题>#</a></h3>
+<h3 id=蛮力法求tsp问题>蛮力法求TSP问题<a hidden class=anchor aria-hidden=true href=#蛮力法求tsp问题>#</a></h3>
 </div>
 <footer class=post-footer>
 <nav class=paginav>
-<a class=prev href=https://jinjiang.life/posts/tsp/>
-<span class=title>« 上一页</span>
+<a class=next href=https://jinjiang.life/posts/first/>
+<span class=title>下一页 »</span>
 <br>
-<span>Tsp问题</span>
+<span>第一篇博客</span>
 </a>
 </nav>
 </footer>

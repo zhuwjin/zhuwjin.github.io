@@ -9,7 +9,17 @@
       <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Nov 2021 17:48:53 +0800</lastBuildDate><atom:link href="https://jinjiang.life/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Nov 2021 21:10:24 +0800</lastBuildDate><atom:link href="https://jinjiang.life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tsp问题</title>
+      <link>https://jinjiang.life/posts/tsp/</link>
+      <pubDate>Mon, 22 Nov 2021 21:10:24 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/tsp/</guid>
+      <description>TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。
+动态规划法求TSP问题 贪心法求TSP问题 蛮力法求TSP问题 </description>
+    </item>
+    
     <item>
       <title>第一篇博客</title>
       <link>https://jinjiang.life/posts/first/</link>
