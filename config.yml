@@ -1,4 +1,4 @@
-baseURL: "jinjiang.life"
+baseURL: "https://jinjiang.life"
 title: ExampleSite
 paginate: 5
 theme: PaperMod
