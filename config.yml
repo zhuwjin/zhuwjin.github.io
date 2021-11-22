@@ -66,21 +66,21 @@ params:
         buttons:
             - name: Posts
               url: posts
-            - name: Tags
-              url: tags
+            - name: github
+              url: github.com/jinjiang5
 
     # home-info mode
     homeInfoParams:
         Title: "Hi there \U0001F44B"
         Content: Welcome to my blog
 
-    socialIcons:
-        - name: bilibili
-          url: "https://www.bilibili.com/"
+    #socialIcons:
+        #- name: bilibili
+          #url: "https://www.bilibili.com/"
         #- name: stackoverflow
           #url: "https://stackoverflow.com"
-        - name: github
-          url: "https://github.com/jinjiang5"
+        #- name: github
+          #url: "https://github.com/jinjiang5"
 
     analytics:
         google:
@@ -120,10 +120,10 @@ menu:
           name: tags
           url: /tags/
           weight: 20
-        #- identifier: example
-          #name: example.org
-          #url: https://example.org
-          #weight: 30
+        - identifier: search
+          name: search
+          url: /search/
+          weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
