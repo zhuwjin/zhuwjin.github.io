@@ -1,5 +1,5 @@
 baseURL: "https://jinjiang.life"
-title: ExampleSite
+title: 锦酱的博客
 paginate: 5
 theme: PaperMod
 
@@ -16,7 +16,7 @@ minify:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    title: ExampleSite
+    title: 锦酱的博客
     description: "ExampleSite description"
     keywords: [Blog, Portfolio, PaperMod]
     author: Me
@@ -55,13 +55,13 @@ params:
 
     # profile-mode
     profileMode:
-        enabled: false # needs to be explicitly set
-        title: ExampleSite
-        subtitle: "This is subtitle"
-        imageUrl: "<img location>"
+        enabled: true # needs to be explicitly set
+        title: 锦酱
+        subtitle: "show me your code"
+        imageUrl: "https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/mutx.png"
         imageWidth: 120
         imageHeight: 120
-        imageTitle: my image
+        imageTitle: 锦酱
         buttons:
             - name: Posts
               url: posts
