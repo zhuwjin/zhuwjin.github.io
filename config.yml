@@ -2,7 +2,7 @@ baseURL: "https://jinjiang.life"
 title: 锦酱的博客
 paginate: 5
 theme: PaperMod
-defaultContentLanguage: zh-cn
+defaultContentLanguage: zh
 
 enableRobotsTXT: true
 buildDrafts: false
