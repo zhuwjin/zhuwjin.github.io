@@ -74,12 +74,12 @@ params:
         Content: Welcome to my blog
 
     socialIcons:
-        - name: twitter
-          url: "https://twitter.com/"
-        - name: stackoverflow
-          url: "https://stackoverflow.com"
+        - name: bilibili
+          url: "https://www.bilibili.com/"
+        #- name: stackoverflow
+          #url: "https://stackoverflow.com"
         - name: github
-          url: "https://github.com/"
+          url: "https://github.com/jinjiang5"
 
     analytics:
         google:
@@ -94,10 +94,10 @@ params:
         hiddenInList: true # hide on list pages and home
         hiddenInSingle: true # hide on single page
 
-    editPost:
-        URL: "https://github.com/<path_to_repo>/content"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
+    #editPost:
+        #URL: "https://github.com/<path_to_repo>/content"
+        #Text: "Suggest Changes" # edit text
+        #appendFilePath: true # to append file path to Edit link
 
     # for search
     # https://fusejs.io/api/options.html
@@ -119,10 +119,10 @@ menu:
           name: tags
           url: /tags/
           weight: 20
-        - identifier: example
-          name: example.org
-          url: https://example.org
-          weight: 30
+        #- identifier: example
+          #name: example.org
+          #url: https://example.org
+          #weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
