@@ -66,31 +66,19 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Tsp问题
+<h2>Java 反射
 </h2>
 </header>
 <section class=entry-content>
-<p>TSP问题 Tsp问题是指旅行家要旅行n个城市，要求各个城市经历且经历一次，然后回到出发城市，并要求所走路线最短。
-蛮力法求TSP问题 使用深度优先遍历求出所有可能的路径，然后找到最短的。
-#include &lt;iostream> #define N 100 using namespace std; bool visited[N]; int arc[N][N]; int path[N]; int min_path[N]; int depth = 0; int minlength = 65536; void DFS(int v, int n) { if (depth == n) { int temp = 0; for (int i = 0; i &lt; n - 1; i++) { temp += arc[path[i]][path[i + 1]]; } temp += arc[path[0]][path[n - 1]]; if (temp &lt; minlength) { minlength = temp; for (int i = 0; i &lt; n; i++) { min_path[i] = path[i]; } } } for (int i = 0; i &lt; n; i++) { if (arc[v][i] !...</p>
+<p>准备 定义一个User类
+public class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return "User{" + "name='" + name + '\'' + ", id=" + id + '}'; } } Class类 获取Class类的三种方法 1、使用Class....</p>
 </section>
-<footer class=entry-footer><span title="2021-11-22 21:10:24 +0800 CST">November 22, 2021</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Me</footer>
-<a class=entry-link aria-label="post link to Tsp问题" href=https://jinjiang.life/posts/tsp/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>第一篇博客
-</h2>
-</header>
-<section class=entry-content>
-<p>这是第一篇博客哟！</p>
-</section>
-<footer class=entry-footer><span title="2021-11-22 17:48:53 +0800 CST">November 22, 2021</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Me</footer>
-<a class=entry-link aria-label="post link to 第一篇博客" href=https://jinjiang.life/posts/first/></a>
+<footer class=entry-footer><span title="2022-02-05 14:13:46 +0800 CST">February 5, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Me</footer>
+<a class=entry-link aria-label="post link to Java 反射" href=https://jinjiang.life/posts/java-01/></a>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://jinjiang.life>锦酱的博客</a></span>
+<span>&copy; 2022 <a href=https://jinjiang.life>锦酱的博客</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
