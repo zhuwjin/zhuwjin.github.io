@@ -124,3 +124,53 @@ System.out.println(user1.getName());
 
 ### 使用`Class`类获取类的构造方法
 
+```java
+Class c1 = User.class;
+Constructor constructor = c1.getConstructor(String.class, int.class);
+Object user1 = constructor.newInstance("jin", 1);
+System.out.println(user1);
+```
+
+```java
+Class c1 = User.class;
+Constructor constructor = c1.getDeclaredConstructor(String.class);
+constructor.setAccessible(true);
+Object user1 = constructor.newInstance("jin");
+System.out.println(user1);
+```
+
+------
+
+### 使用`Class`类获取类的成员方法
+
+```java
+Class c1 = User.class;
+User user1 = new User("jin", 1);
+Method getName = c1.getMethod("getName");
+Object str = getName.invoke(user1);
+System.out.println(str);
+```
+
+
+
+### 反射的使用
+
+```java
+ClassLoader classLoader = MainApplication.class.getClassLoader();
+InputStream inputStream = classLoader.getResourceAsStream("pro.properties");
+Properties pro = new Properties();
+pro.load(inputStream);
+String className = pro.getProperty("className");
+String methodName = pro.getProperty("methodName");
+Class cls = Class.forName(className);
+Constructor constructor = cls.getConstructor();
+Object obj = constructor.newInstance();
+Method method = cls.getMethod(methodName);
+method.invoke(obj);
+```
+
+```properties
+className = com.jin.learnjava.User
+methodName = eat
+```
+

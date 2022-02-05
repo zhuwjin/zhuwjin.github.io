@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jinjiang.life/posts/java-01/</loc>
-    <lastmod>2022-02-05T14:13:46+08:00</lastmod>
+    <loc>https://jinjiang.life/posts/java-02/</loc>
+    <lastmod>2022-02-05T16:57:54+08:00</lastmod>
   </url><url>
     <loc>https://jinjiang.life/posts/</loc>
-    <lastmod>2022-02-05T14:13:46+08:00</lastmod>
+    <lastmod>2022-02-05T16:57:54+08:00</lastmod>
   </url><url>
     <loc>https://jinjiang.life/</loc>
+    <lastmod>2022-02-05T16:57:54+08:00</lastmod>
+  </url><url>
+    <loc>https://jinjiang.life/posts/java-01/</loc>
     <lastmod>2022-02-05T14:13:46+08:00</lastmod>
   </url><url>
     <loc>https://jinjiang.life/categories/</loc>

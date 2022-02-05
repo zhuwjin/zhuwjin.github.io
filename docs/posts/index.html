@@ -66,6 +66,21 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Java 注解
+</h2>
+</header>
+<section class=entry-content>
+<p>JAVA内置注解 1、@Override注解 @Override注解在重写父类方法时使用。
+@Override public String toString() { return "User{" + "name='" + name + '\'' + ", id=" + id + '}'; } @Deprecated注解表示已弃用
+@Deprecated public void eat() { System.out.println("eating..."); } @SuppressWarnings("all")表示忽略所有警告
+@SuppressWarnings("all") public void eat() { System.out.println("eating..."); } 自定义注解和使用自定义注解 public @interface MyAnno {} @MyAnno public void eat() { System.out.println("eating..."); } 自定义注解的属性 注解的属性类型限制：基本数据类型、String、枚举、注解、和前面类型的数组。
+enum Person { P1, P2 } public @interface MyAnno { String name(); int age(); Person per(); MyAnno2 an(); String[] str(); } @MyAnno(name="jin", age = 18, per = Person....</p>
+</section>
+<footer class=entry-footer><span title="2022-02-05 16:57:54 +0800 CST">February 5, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Me</footer>
+<a class=entry-link aria-label="post link to Java 注解" href=https://jinjiang.life/posts/java-02/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Java 反射
 </h2>
 </header>
@@ -73,7 +88,7 @@
 <p>准备 定义一个User类
 public class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return "User{" + "name='" + name + '\'' + ", id=" + id + '}'; } } Class类 获取Class类的三种方法 1、使用Class....</p>
 </section>
-<footer class=entry-footer><span title="2022-02-05 14:13:46 +0800 CST">February 5, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Me</footer>
+<footer class=entry-footer><span title="2022-02-05 14:13:46 +0800 CST">February 5, 2022</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Me</footer>
 <a class=entry-link aria-label="post link to Java 反射" href=https://jinjiang.life/posts/java-01/></a>
 </article>
 </main>

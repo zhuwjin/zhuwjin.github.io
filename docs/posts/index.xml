@@ -9,7 +9,20 @@
       <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 05 Feb 2022 14:13:46 +0800</lastBuildDate><atom:link href="https://jinjiang.life/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Feb 2022 16:57:54 +0800</lastBuildDate><atom:link href="https://jinjiang.life/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 注解</title>
+      <link>https://jinjiang.life/posts/java-02/</link>
+      <pubDate>Sat, 05 Feb 2022 16:57:54 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/java-02/</guid>
+      <description>JAVA内置注解 1、@Override注解 @Override注解在重写父类方法时使用。
+@Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, id=&amp;#34; + id + &amp;#39;}&amp;#39;; } @Deprecated注解表示已弃用
+@Deprecated public void eat() { System.out.println(&amp;#34;eating...&amp;#34;); } @SuppressWarnings(&amp;quot;all&amp;quot;)表示忽略所有警告
+@SuppressWarnings(&amp;#34;all&amp;#34;) public void eat() { System.out.println(&amp;#34;eating...&amp;#34;); } 自定义注解和使用自定义注解 public @interface MyAnno {} @MyAnno public void eat() { System.out.println(&amp;#34;eating...&amp;#34;); } 自定义注解的属性 注解的属性类型限制：基本数据类型、String、枚举、注解、和前面类型的数组。
+enum Person { P1, P2 } public @interface MyAnno { String name(); int age(); Person per(); MyAnno2 an(); String[] str(); } @MyAnno(name=&amp;#34;jin&amp;#34;, age = 18, per = Person.</description>
+    </item>
+    
     <item>
       <title>Java 反射</title>
       <link>https://jinjiang.life/posts/java-01/</link>
