@@ -126,3 +126,35 @@ public @interface MyAnno {
 #### 3、`@Documented`元注解表示注解是否提取到`API`文档
 
 #### 4、`@Inherited`元注解表示注解是否被子类继承
+
+### 解析注解
+
+```java
+Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyAnno {
+    String className();
+    String methodName();
+}
+
+
+public static void run(Class<MainApplication> mainApplicationClass) throws Exception {
+    MyAnno annotation = mainApplicationClass.getAnnotation(MyAnno.class);
+    String className = annotation.className();
+    String methodName = annotation.methodName();
+    Class cls = Class.forName(className);
+    Constructor constructor = cls.getConstructor();
+    Object obj = constructor.newInstance();
+    Method method = cls.getMethod(methodName);
+    method.invoke(obj);
+}
+
+
+@MyAnno(className = "com.jin.learnjava.User", methodName = "eat")
+public class MainApplication {
+    public static void main(String[] args) throws Exception {
+        Runner.run(MainApplication.class);
+    }
+}
+```
+
