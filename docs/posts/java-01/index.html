@@ -39,7 +39,7 @@ public class User { private String name; private int id; public User(String name
 <meta name=twitter:description content="准备 定义一个User类
 public class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, id=&#34; + id + '}'; } } Class类 获取Class类的三种方法 1、使用Class.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"Java 反射","item":"https://jinjiang.life/posts/java-01/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Java 反射","name":"Java 反射","description":"准备 定义一个User类\npublic class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return \u0026#34;User{\u0026#34; + \u0026#34;name=\u0026#39;\u0026#34; + name + \u0026#39;\\\u0026#39;\u0026#39; + \u0026#34;, id=\u0026#34; + id + \u0026#39;}\u0026#39;; } } Class类 获取Class类的三种方法 1、使用Class.","keywords":[],"articleBody":"准备 定义一个User类\npublic class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", id=\" + id + '}'; } } Class类 获取Class类的三种方法 1、使用Class.forName()方法 Class c1 = Class.forName(\"life.jinjiang.User\"); 2、使用类名.class方法 Class c2 = User.class; 3、使用对象.getClass()方法 User user1 = new User(); Class c3 = user1.getClass(); ","wordCount":"105","inLanguage":"zh","datePublished":"2022-02-05T14:13:46+08:00","dateModified":"2022-02-05T14:13:46+08:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/java-01/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Java 反射","name":"Java 反射","description":"准备 定义一个User类\npublic class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return \u0026#34;User{\u0026#34; + \u0026#34;name=\u0026#39;\u0026#34; + name + \u0026#39;\\\u0026#39;\u0026#39; + \u0026#34;, id=\u0026#34; + id + \u0026#39;}\u0026#39;; } } Class类 获取Class类的三种方法 1、使用Class.","keywords":[],"articleBody":"准备 定义一个User类\npublic class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", id=\" + id + '}'; } } Class类 获取Class类的三种方法 1、使用Class.forName()方法 Class c1 = Class.forName(\"life.jinjiang.User\"); 2、使用类名.class方法 Class c2 = User.class; 3、使用对象.getClass()方法 User user1 = new User(); Class c3 = user1.getClass(); 使用Class类获取类的成员变量 1、使用getFields()获取所有的public成员变量 Class c1 = User.class; Field[] fields = c1.getFields(); for(Field field : fields) { System.out.Println(field); } 2、使用getField()获取指定的public成员变量 Class c1 = User.class; Field field = c1.getField(\"name\"); 3、使用getDeclaredFields()获取所有的成员变量 Class c1 = User.class; Field[] fields = c1.getDeclaredFields(); for(Field field : fields) { System.out.Println(field); } 4、使用getDeclaredField()获取指定的成员变量 Class c1 = User.class; Field field = c1.getDeclaredField(\"name\"); 5、获取和设置成员变量的值 User user1 = new User(); Class c1 = User.class; Field name = c1.getDeclaredField(\"name\"); name.setAccessible(true);//不检测可见性 System.out.println(name.get(user1)); name.set(user1, \"jin\"); System.out.println(user1.getName()); 使用Class类获取类的构造方法 ","wordCount":"176","inLanguage":"zh","datePublished":"2022-02-05T14:13:46+08:00","dateModified":"2022-02-05T14:13:46+08:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/java-01/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -92,11 +92,24 @@ Java 反射
 <li>
 <a href=#2%e4%bd%bf%e7%94%a8%e7%b1%bb%e5%90%8dclass%e6%96%b9%e6%b3%95 aria-label=2、使用类名.class方法>2、使用<code>类名.class</code>方法</a></li>
 <li>
-<a href=#3%e4%bd%bf%e7%94%a8%e5%af%b9%e8%b1%a1getclass%e6%96%b9%e6%b3%95 aria-label=3、使用对象.getClass()方法>3、使用<code>对象.getClass()</code>方法</a>
+<a href=#3%e4%bd%bf%e7%94%a8%e5%af%b9%e8%b1%a1getclass%e6%96%b9%e6%b3%95 aria-label=3、使用对象.getClass()方法>3、使用<code>对象.getClass()</code>方法</a></li></ul>
+</li></ul>
 </li>
-</ul>
+<li>
+<a href=#%e4%bd%bf%e7%94%a8class%e7%b1%bb%e8%8e%b7%e5%8f%96%e7%b1%bb%e7%9a%84%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f aria-label=使用Class类获取类的成员变量>使用<code>Class</code>类获取类的成员变量</a><ul>
+<li>
+<a href=#1%e4%bd%bf%e7%94%a8getfields%e8%8e%b7%e5%8f%96%e6%89%80%e6%9c%89%e7%9a%84public%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f aria-label=1、使用getFields()获取所有的public成员变量>1、使用<code>getFields()</code>获取所有的<code>public</code>成员变量</a></li>
+<li>
+<a href=#2%e4%bd%bf%e7%94%a8getfield%e8%8e%b7%e5%8f%96%e6%8c%87%e5%ae%9a%e7%9a%84public%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f aria-label=2、使用getField()获取指定的public成员变量>2、使用<code>getField()</code>获取指定的<code>public</code>成员变量</a></li>
+<li>
+<a href=#3%e4%bd%bf%e7%94%a8getdeclaredfields%e8%8e%b7%e5%8f%96%e6%89%80%e6%9c%89%e7%9a%84%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f aria-label=3、使用getDeclaredFields()获取所有的成员变量>3、使用<code>getDeclaredFields()</code>获取所有的成员变量</a></li>
+<li>
+<a href=#4%e4%bd%bf%e7%94%a8getdeclaredfield%e8%8e%b7%e5%8f%96%e6%8c%87%e5%ae%9a%e7%9a%84%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f aria-label=4、使用getDeclaredField()获取指定的成员变量>4、使用<code>getDeclaredField()</code>获取指定的成员变量</a></li>
+<li>
+<a href=#5%e8%8e%b7%e5%8f%96%e5%92%8c%e8%ae%be%e7%bd%ae%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f%e7%9a%84%e5%80%bc aria-label=5、获取和设置成员变量的值>5、获取和设置成员变量的值</a></li></ul>
 </li>
-</ul>
+<li>
+<a href=#%e4%bd%bf%e7%94%a8class%e7%b1%bb%e8%8e%b7%e5%8f%96%e7%b1%bb%e7%9a%84%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95 aria-label=使用Class类获取类的构造方法>使用<code>Class</code>类获取类的构造方法</a>
 </li>
 </ul>
 </div>
@@ -149,7 +162,34 @@ Java 反射
 </code></pre></div><h5 id=3使用对象getclass方法>3、使用<code>对象.getClass()</code>方法<a hidden class=anchor aria-hidden=true href=#3使用对象getclass方法>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>User user1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> User<span style=color:#f92672>();</span>
 Class c3 <span style=color:#f92672>=</span> user1<span style=color:#f92672>.</span><span style=color:#a6e22e>getClass</span><span style=color:#f92672>();</span>
-</code></pre></div>
+</code></pre></div><h3 id=使用class类获取类的成员变量>使用<code>Class</code>类获取类的成员变量<a hidden class=anchor aria-hidden=true href=#使用class类获取类的成员变量>#</a></h3>
+<h4 id=1使用getfields获取所有的public成员变量>1、使用<code>getFields()</code>获取所有的<code>public</code>成员变量<a hidden class=anchor aria-hidden=true href=#1使用getfields获取所有的public成员变量>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Class c1 <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>;</span>
+Field<span style=color:#f92672>[]</span> fields <span style=color:#f92672>=</span> c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getFields</span><span style=color:#f92672>();</span>
+<span style=color:#66d9ef>for</span><span style=color:#f92672>(</span>Field field <span style=color:#f92672>:</span> fields<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>Println</span><span style=color:#f92672>(</span>field<span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><h4 id=2使用getfield获取指定的public成员变量>2、使用<code>getField()</code>获取指定的<code>public</code>成员变量<a hidden class=anchor aria-hidden=true href=#2使用getfield获取指定的public成员变量>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Class c1 <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>;</span>
+Field field <span style=color:#f92672>=</span> c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getField</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;name&#34;</span><span style=color:#f92672>);</span>
+</code></pre></div><h4 id=3使用getdeclaredfields获取所有的成员变量>3、使用<code>getDeclaredFields()</code>获取所有的成员变量<a hidden class=anchor aria-hidden=true href=#3使用getdeclaredfields获取所有的成员变量>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Class c1 <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>;</span>
+Field<span style=color:#f92672>[]</span> fields <span style=color:#f92672>=</span> c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getDeclaredFields</span><span style=color:#f92672>();</span>
+<span style=color:#66d9ef>for</span><span style=color:#f92672>(</span>Field field <span style=color:#f92672>:</span> fields<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>Println</span><span style=color:#f92672>(</span>field<span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><h4 id=4使用getdeclaredfield获取指定的成员变量>4、使用<code>getDeclaredField()</code>获取指定的成员变量<a hidden class=anchor aria-hidden=true href=#4使用getdeclaredfield获取指定的成员变量>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Class c1 <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>;</span>
+Field field <span style=color:#f92672>=</span> c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getDeclaredField</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;name&#34;</span><span style=color:#f92672>);</span>
+</code></pre></div><h4 id=5获取和设置成员变量的值>5、获取和设置成员变量的值<a hidden class=anchor aria-hidden=true href=#5获取和设置成员变量的值>#</a></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>User user1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> User<span style=color:#f92672>();</span>
+Class c1 <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>;</span>
+Field name <span style=color:#f92672>=</span> c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getDeclaredField</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;name&#34;</span><span style=color:#f92672>);</span>
+name<span style=color:#f92672>.</span><span style=color:#a6e22e>setAccessible</span><span style=color:#f92672>(</span><span style=color:#66d9ef>true</span><span style=color:#f92672>);</span><span style=color:#75715e>//不检测可见性
+</span><span style=color:#75715e></span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>name<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>user1<span style=color:#f92672>));</span>
+name<span style=color:#f92672>.</span><span style=color:#a6e22e>set</span><span style=color:#f92672>(</span>user1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;jin&#34;</span><span style=color:#f92672>);</span>
+System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>user1<span style=color:#f92672>.</span><span style=color:#a6e22e>getName</span><span style=color:#f92672>());</span>
+</code></pre></div><h3 id=使用class类获取类的构造方法>使用<code>Class</code>类获取类的构造方法<a hidden class=anchor aria-hidden=true href=#使用class类获取类的构造方法>#</a></h3>
 </div>
 <footer class=post-footer>
 </footer>

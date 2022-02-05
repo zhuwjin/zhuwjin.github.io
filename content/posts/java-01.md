@@ -47,6 +47,8 @@ public class User {
 }
 ```
 
+
+
 ### `Class`类
 
 #### 获取`Class`类的三种方法
@@ -69,4 +71,56 @@ Class c2 = User.class;
 User user1 = new User();
 Class c3 = user1.getClass();
 ```
+
+
+
+### 使用`Class`类获取类的成员变量
+
+#### 1、使用`getFields()`获取所有的`public`成员变量
+
+```java
+Class c1 = User.class;
+Field[] fields = c1.getFields();
+for(Field field : fields) {
+    System.out.Println(field);
+}
+```
+
+#### 2、使用`getField()`获取指定的`public`成员变量
+
+```java
+Class c1 = User.class;
+Field field = c1.getField("name");
+```
+
+#### 3、使用`getDeclaredFields()`获取所有的成员变量
+
+```java
+Class c1 = User.class;
+Field[] fields = c1.getDeclaredFields();
+for(Field field : fields) {
+    System.out.Println(field);
+}
+```
+
+#### 4、使用`getDeclaredField()`获取指定的成员变量
+
+```java
+Class c1 = User.class;
+Field field = c1.getDeclaredField("name");
+```
+
+#### 5、获取和设置成员变量的值
+
+```java
+User user1 = new User();
+Class c1 = User.class;
+Field name = c1.getDeclaredField("name");
+name.setAccessible(true);//不检测可见性
+System.out.println(name.get(user1));
+name.set(user1, "jin");
+System.out.println(user1.getName());
+```
+
+### 使用`Class`类获取类的构造方法
 
