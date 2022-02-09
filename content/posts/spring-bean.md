@@ -87,8 +87,279 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="user" class="life.jinjiang.User">
         <constructor-arg name="name" value="Jin"/>
+        <!--  <constructor-arg index="0" value="Jin"/>  -->
         <constructor-arg name="age" value="18"/>
     </bean>
 </beans>
+```
+
+
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+       xmlns:p="http://www.springframework.org/schema/p">
+    <bean id="user" class="life.jinjiang.User" p:name="Jin" p:age="18"/>
+</beans>
+```
+
+设置空值
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User">
+        <property name="name"><null/></property>
+        <property name="age" value="18"/>
+    </bean>
+</beans>
+```
+
+
+
+注入
+
+```java
+public class UserService {
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "user=" + user +
+                '}';
+    }
+}
+```
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("Bean.xml");
+        UserService userService = (UserService) classPathXmlApplicationContext.getBean("userService");
+        System.out.println(userService);
+    }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User">
+        <property name="name" value="Jin"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="userService" class="life.jinjiang.UserService">
+        <property name="user" ref="user"/>
+    </bean>
+</beans>
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User">
+<!--        <property name="name" value="Jin"/>-->
+<!--        <property name="age" value="18"/>-->
+    </bean>
+    <bean id="userService" class="life.jinjiang.UserService">
+        <property name="user" ref="user"/>
+        <property name="user.name" value="Jin"/>
+        <property name="user.age" value="18"/>
+    </bean>
+</beans>
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User">
+<!--        <property name="name" value="Jin"/>-->
+<!--        <property name="age" value="18"/>-->
+    </bean>
+    <bean id="userService" class="life.jinjiang.UserService">
+        <property name="user">
+            <bean id="user" class="life.jinjiang.User">
+                <property name="name" value="Jin"/>
+                <property name="age" value="18"/>
+            </bean>
+        </property>
+    </bean>
+</beans>
+```
+
+
+
+作用域
+
+单实例：`singleton`默认，读取配置文件时就创建
+
+多实例：`prototype`，创建对象时才创建
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("Bean.xml");
+        User user = (User) classPathXmlApplicationContext.getBean("user");
+        User user2 = (User) classPathXmlApplicationContext.getBean("user");
+        System.out.println(user==user2);
+    }
+}
+```
+
+默认单实例输出`true`
+
+更改配置文件
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User" scope="prototype">
+        <property name="name" value="Jin"/>
+        <property name="age" value="18"/>
+    </bean>
+</beans>
+```
+
+多实例输出`false`
+
+
+
+生命周期
+
+```java
+public class User {
+    private String name;
+    private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        System.out.println("执行setter方法");
+    }
+
+    public User() {
+        System.out.println("执行构造方法");
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    public void initMethod() {
+        System.out.println("执行init方法");
+    }
+
+    public void destroyMethod() {
+        System.out.println("执行destroy方法");
+    }
+}
+```
+
+
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("Bean.xml");
+        User user = (User) classPathXmlApplicationContext.getBean("user");
+        classPathXmlApplicationContext.close();
+    }
+}
+```
+
+
+
+输出
+
+```
+执行构造方法
+执行setter方法
+执行init方法
+执行destroy方法
+```
+
+后置处理器
+
+```java
+public class MyBeanPost implements BeanPostProcessor {
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("执行postProcessBeforeInitialization方法");
+        return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("执行postProcessAfterInitialization方法");
+        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+    }
+}
+```
+
+
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="name" value="Jin"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="myBeanPost" class="life.jinjiang.MyBeanPost"/>
+</beans>
+```
+
+
+
+```
+执行构造方法
+执行setter方法
+执行postProcessBeforeInitialization方法
+执行init方法
+执行postProcessAfterInitialization方法
+执行destroy方法
 ```
 

@@ -42,7 +42,7 @@ xml解析、工厂模式、反射。
 xml解析、工厂模式、反射。
 使用Bean创建对象 使用xml方式 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"Spring Bean","item":"https://jinjiang.life/posts/spring-bean/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spring Bean","name":"Spring Bean","description":"IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\n使用Bean创建对象 使用xml方式 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \u0026#34;User{\u0026#34; + \u0026#34;name=\u0026#39;\u0026#34; + name + \u0026#39;\\\u0026#39;\u0026#39; + \u0026#34;, age=\u0026#34; + age + \u0026#39;}\u0026#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\u0026#34;Bean.","keywords":["Java","Spring"],"articleBody":"IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\n使用Bean创建对象 使用xml方式 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user); } } 使用无参构造和setter方法\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   使用有参构造方法\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   ","wordCount":"148","inLanguage":"zh","datePublished":"2022-02-08T14:45:56+08:00","dateModified":"2022-02-08T14:45:56+08:00","author":[{"@type":"Person","name":"Jin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/spring-bean/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spring Bean","name":"Spring Bean","description":"IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\n使用Bean创建对象 使用xml方式 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \u0026#34;User{\u0026#34; + \u0026#34;name=\u0026#39;\u0026#34; + name + \u0026#39;\\\u0026#39;\u0026#39; + \u0026#34;, age=\u0026#34; + age + \u0026#39;}\u0026#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\u0026#34;Bean.","keywords":["Java","Spring"],"articleBody":"IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\n使用Bean创建对象 使用xml方式 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user); } } 使用无参构造和setter方法\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   使用有参构造方法\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/ --  name=\"age\" value=\"18\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\" xmlns:p=\"http://www.springframework.org/schema/p\"  id=\"user\" class=\"life.jinjiang.User\" p:name=\"Jin\" p:age=\"18\"/  设置空值\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\"  name=\"age\" value=\"18\"/   注入\npublic class UserService { private User user; public User getUser() { return user; } public void setUser(User user) { this.user = user; } @Override public String toString() { return \"UserService{\" + \"user=\" + user + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); UserService userService = (UserService) classPathXmlApplicationContext.getBean(\"userService\"); System.out.println(userService); } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\" ref=\"user\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" -- --   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\" ref=\"user\"/  name=\"user.name\" value=\"Jin\"/  name=\"user.age\" value=\"18\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" -- --   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/     作用域\n单实例：singleton默认，读取配置文件时就创建\n多实例：prototype，创建对象时才创建\npublic class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); User user2 = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user==user2); } } 默认单实例输出true\n更改配置文件\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" scope=\"prototype\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   多实例输出false\n生命周期\npublic class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; System.out.println(\"执行setter方法\"); } public User() { System.out.println(\"执行构造方法\"); } public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } public void initMethod() { System.out.println(\"执行init方法\"); } public void destroyMethod() { System.out.println(\"执行destroy方法\"); } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); classPathXmlApplicationContext.close(); } } 输出\n执行构造方法 执行setter方法 执行init方法 执行destroy方法 后置处理器\npublic class MyBeanPost implements BeanPostProcessor { @Override public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException { System.out.println(\"执行postProcessBeforeInitialization方法\"); return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName); } @Override public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException { System.out.println(\"执行postProcessAfterInitialization方法\"); return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName); } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" init-method=\"initMethod\" destroy-method=\"destroyMethod\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"myBeanPost\" class=\"life.jinjiang.MyBeanPost\"/  执行构造方法 执行setter方法 执行postProcessBeforeInitialization方法 执行init方法 执行postProcessAfterInitialization方法 执行destroy方法 ","wordCount":"593","inLanguage":"zh","datePublished":"2022-02-08T14:45:56+08:00","dateModified":"2022-02-08T14:45:56+08:00","author":[{"@type":"Person","name":"Jin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/spring-bean/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -76,7 +76,7 @@ xml解析、工厂模式、反射。
 <h1 class=post-title>
 Spring Bean
 </h1>
-<div class=post-meta><span title="2022-02-08 14:45:56 +0800 CST">February 8, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Jin
+<div class=post-meta><span title="2022-02-08 14:45:56 +0800 CST">February 8, 2022</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;Jin
 </div>
 </header> <div class=toc>
 <details>
@@ -161,10 +161,209 @@ Spring Bean
 </span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
     <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span><span style=color:#f92672>&gt;</span>
         <span style=color:#f92672>&lt;constructor-arg</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;Jin&#34;</span><span style=color:#f92672>/&gt;</span>
+        <span style=color:#75715e>&lt;!--  &lt;constructor-arg index=&#34;0&#34; value=&#34;Jin&#34;/&gt;  --&gt;</span>
         <span style=color:#f92672>&lt;constructor-arg</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
     <span style=color:#f92672>&lt;/bean&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
-</code></pre></div>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span>
+       <span style=color:#a6e22e>xmlns:p=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/p&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span> <span style=color:#a6e22e>p:name=</span><span style=color:#e6db74>&#34;Jin&#34;</span> <span style=color:#a6e22e>p:age=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><p>设置空值</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span><span style=color:#f92672>&gt;&lt;null/&gt;&lt;/property&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><p>注入</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserService</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>private</span> User user<span style=color:#f92672>;</span>
+
+    <span style=color:#66d9ef>public</span> User <span style=color:#a6e22e>getUser</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> user<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setUser</span><span style=color:#f92672>(</span>User user<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>user</span> <span style=color:#f92672>=</span> user<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;UserService{&#34;</span> <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#34;user=&#34;</span> <span style=color:#f92672>+</span> user <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#39;}&#39;</span><span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainApplication</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        ClassPathXmlApplicationContext classPathXmlApplicationContext <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ClassPathXmlApplicationContext<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bean.xml&#34;</span><span style=color:#f92672>);</span>
+        UserService userService <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>UserService<span style=color:#f92672>)</span> classPathXmlApplicationContext<span style=color:#f92672>.</span><span style=color:#a6e22e>getBean</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;userService&#34;</span><span style=color:#f92672>);</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>userService<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;Jin&#34;</span><span style=color:#f92672>/&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;userService&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.UserService&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>ref=</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>/&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span><span style=color:#f92672>&gt;</span>
+<span style=color:#75715e>&lt;!--        &lt;property name=&#34;name&#34; value=&#34;Jin&#34;/&gt;--&gt;</span>
+<span style=color:#75715e>&lt;!--        &lt;property name=&#34;age&#34; value=&#34;18&#34;/&gt;--&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;userService&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.UserService&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>ref=</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>/&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;user.name&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;Jin&#34;</span><span style=color:#f92672>/&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;user.age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span><span style=color:#f92672>&gt;</span>
+<span style=color:#75715e>&lt;!--        &lt;property name=&#34;name&#34; value=&#34;Jin&#34;/&gt;--&gt;</span>
+<span style=color:#75715e>&lt;!--        &lt;property name=&#34;age&#34; value=&#34;18&#34;/&gt;--&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;userService&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.UserService&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>&gt;</span>
+            <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span><span style=color:#f92672>&gt;</span>
+                <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;Jin&#34;</span><span style=color:#f92672>/&gt;</span>
+                <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+            <span style=color:#f92672>&lt;/bean&gt;</span>
+        <span style=color:#f92672>&lt;/property&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><p>作用域</p>
+<p>单实例：<code>singleton</code>默认，读取配置文件时就创建</p>
+<p>多实例：<code>prototype</code>，创建对象时才创建</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainApplication</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        ClassPathXmlApplicationContext classPathXmlApplicationContext <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ClassPathXmlApplicationContext<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bean.xml&#34;</span><span style=color:#f92672>);</span>
+        User user <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>User<span style=color:#f92672>)</span> classPathXmlApplicationContext<span style=color:#f92672>.</span><span style=color:#a6e22e>getBean</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>);</span>
+        User user2 <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>User<span style=color:#f92672>)</span> classPathXmlApplicationContext<span style=color:#f92672>.</span><span style=color:#a6e22e>getBean</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>);</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>user<span style=color:#f92672>==</span>user2<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>默认单实例输出<code>true</code></p>
+<p>更改配置文件</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span> <span style=color:#a6e22e>scope=</span><span style=color:#e6db74>&#34;prototype&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;Jin&#34;</span><span style=color:#f92672>/&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><p>多实例输出<code>false</code></p>
+<p>生命周期</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>private</span> String name<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>;</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>User</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>age</span> <span style=color:#f92672>=</span> age<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getName</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> name<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setName</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;执行setter方法&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>User</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;执行构造方法&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getAge</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> age<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setAge</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> age<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>age</span> <span style=color:#f92672>=</span> age<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;User{&#34;</span> <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#34;name=&#39;&#34;</span> <span style=color:#f92672>+</span> name <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#34;, age=&#34;</span> <span style=color:#f92672>+</span> age <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#39;}&#39;</span><span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>initMethod</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;执行init方法&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>destroyMethod</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;执行destroy方法&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainApplication</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        ClassPathXmlApplicationContext classPathXmlApplicationContext <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ClassPathXmlApplicationContext<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bean.xml&#34;</span><span style=color:#f92672>);</span>
+        User user <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>User<span style=color:#f92672>)</span> classPathXmlApplicationContext<span style=color:#f92672>.</span><span style=color:#a6e22e>getBean</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>);</span>
+        classPathXmlApplicationContext<span style=color:#f92672>.</span><span style=color:#a6e22e>close</span><span style=color:#f92672>();</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>输出</p>
+<pre tabindex=0><code>执行构造方法
+执行setter方法
+执行init方法
+执行destroy方法
+</code></pre><p>后置处理器</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyBeanPost</span> <span style=color:#66d9ef>implements</span> BeanPostProcessor <span style=color:#f92672>{</span>
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> Object <span style=color:#a6e22e>postProcessBeforeInitialization</span><span style=color:#f92672>(</span>Object bean<span style=color:#f92672>,</span> String beanName<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> BeansException <span style=color:#f92672>{</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;执行postProcessBeforeInitialization方法&#34;</span><span style=color:#f92672>);</span>
+        <span style=color:#66d9ef>return</span> BeanPostProcessor<span style=color:#f92672>.</span><span style=color:#a6e22e>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>postProcessBeforeInitialization</span><span style=color:#f92672>(</span>bean<span style=color:#f92672>,</span> beanName<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> Object <span style=color:#a6e22e>postProcessAfterInitialization</span><span style=color:#f92672>(</span>Object bean<span style=color:#f92672>,</span> String beanName<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> BeansException <span style=color:#f92672>{</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;执行postProcessAfterInitialization方法&#34;</span><span style=color:#f92672>);</span>
+        <span style=color:#66d9ef>return</span> BeanPostProcessor<span style=color:#f92672>.</span><span style=color:#a6e22e>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>postProcessAfterInitialization</span><span style=color:#f92672>(</span>bean<span style=color:#f92672>,</span> beanName<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
+</span><span style=color:#e6db74>http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span> <span style=color:#a6e22e>init-method=</span><span style=color:#e6db74>&#34;initMethod&#34;</span> <span style=color:#a6e22e>destroy-method=</span><span style=color:#e6db74>&#34;destroyMethod&#34;</span><span style=color:#f92672>&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;Jin&#34;</span><span style=color:#f92672>/&gt;</span>
+        <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
+    <span style=color:#f92672>&lt;/bean&gt;</span>
+    <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;myBeanPost&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.MyBeanPost&#34;</span><span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><pre tabindex=0><code>执行构造方法
+执行setter方法
+执行postProcessBeforeInitialization方法
+执行init方法
+执行postProcessAfterInitialization方法
+执行destroy方法
+</code></pre>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
