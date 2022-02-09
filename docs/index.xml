@@ -18,7 +18,7 @@
       <guid>https://jinjiang.life/posts/spring-bean/</guid>
       <description>IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
 xml解析、工厂模式、反射。
-使用Bean创建对象 使用xml方式 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, age=&amp;#34; + age + &amp;#39;}&amp;#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&amp;#34;Bean.</description>
+Bean（使用xml） 使用Bean创建对象 准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, age=&amp;#34; + age + &amp;#39;}&amp;#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&amp;#34;Bean.</description>
     </item>
     
     <item>

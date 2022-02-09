@@ -12,9 +12,11 @@ tags: ["Java", "Spring"]
 
 `xml`解析、工厂模式、反射。
 
-### 使用`Bean`创建对象
+### `Bean`（使用`xml`）
 
-#### 使用`xml`方式
+#### 使用`Bean`创建对象
+
+##### 准备对象
 
 ```java
 public class User {
@@ -64,7 +66,7 @@ public class MainApplication {
 }
 ```
 
-使用无参构造和`setter`方法
+##### 使用无参构造和`setter`方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +80,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 </beans>
 ```
 
-使用有参构造方法
+##### 使用有参构造方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +95,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 </beans>
 ```
 
-
+##### 使用`p`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -105,7 +107,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd"
 </beans>
 ```
 
-设置空值
+##### 设置空值
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -121,7 +123,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-注入
+#### 注入
+
+##### 准备对象
 
 ```java
 public class UserService {
@@ -208,7 +212,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-作用域
+#### 作用域
 
 单实例：`singleton`默认，读取配置文件时就创建
 
@@ -245,7 +249,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-生命周期
+#### 生命周期
 
 ```java
 public class User {
@@ -319,7 +323,7 @@ public class MainApplication {
 执行destroy方法
 ```
 
-后置处理器
+##### 后置处理器
 
 ```java
 public class MyBeanPost implements BeanPostProcessor {
@@ -362,4 +366,100 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 执行postProcessAfterInitialization方法
 执行destroy方法
 ```
+
+
+
+#### 自动装配
+
+`autowire`属性有两种常用的值：`ByName`和`ByType`
+
+`ByName`：根据对象名称来匹配
+
+`ByType`：根据对象类型来匹配
+
+```java
+public class User {
+    private String name;
+    private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User() {}
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+```
+
+```java
+public class UserService {
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "user=" + user +
+                '}';
+    }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="life.jinjiang.User">
+        <property name="name" value="Jin"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="userService" class="life.jinjiang.UserService" autowire="byName"/>
+</beans>
+```
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("Bean.xml");
+        UserService userService = (UserService) classPathXmlApplicationContext.getBean("userService");
+        System.out.println(userService);
+    }
+}
+```
+
+
+
+### `Bean`（使用注解）
 
