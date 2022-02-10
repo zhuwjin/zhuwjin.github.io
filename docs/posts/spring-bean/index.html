@@ -5,9 +5,9 @@
 <meta name=robots content="index, follow">
 <title>Spring Bean | 锦酱的博客</title>
 <meta name=keywords content="Java,Spring">
-<meta name=description content="IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
+<meta name=description content="〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
 xml解析、工厂模式、反射。
-Bean（使用xml） 使用Bean创建对象 准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
+一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
 <meta name=author content="Jin">
 <link rel=canonical href=https://jinjiang.life/posts/spring-bean/>
 <meta name=google-site-verification content="XYZabc">
@@ -28,9 +28,9 @@ Bean（使用xml） 使用Bean创建对象 准备对象 public class User { priv
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-123-45','auto'),ga('send','pageview'))</script><meta property="og:title" content="Spring Bean">
-<meta property="og:description" content="IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
+<meta property="og:description" content="〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
 xml解析、工厂模式、反射。
-Bean（使用xml） 使用Bean创建对象 准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
+一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jinjiang.life/posts/spring-bean/"><meta property="og:image" content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-02-08T14:45:56+08:00">
@@ -38,11 +38,11 @@ Bean（使用xml） 使用Bean创建对象 准备对象 public class User { priv
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
 <meta name=twitter:title content="Spring Bean">
-<meta name=twitter:description content="IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
+<meta name=twitter:description content="〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
 xml解析、工厂模式、反射。
-Bean（使用xml） 使用Bean创建对象 准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
+一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &#34;User{&#34; + &#34;name='&#34; + name + '\'' + &#34;, age=&#34; + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&#34;Bean.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"Spring Bean","item":"https://jinjiang.life/posts/spring-bean/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spring Bean","name":"Spring Bean","description":"IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\nBean（使用xml） 使用Bean创建对象 准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \u0026#34;User{\u0026#34; + \u0026#34;name=\u0026#39;\u0026#34; + name + \u0026#39;\\\u0026#39;\u0026#39; + \u0026#34;, age=\u0026#34; + age + \u0026#39;}\u0026#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\u0026#34;Bean.","keywords":["Java","Spring"],"articleBody":"IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\nBean（使用xml） 使用Bean创建对象 准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user); } } 使用无参构造和setter方法   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   使用有参构造方法   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/ --  name=\"age\" value=\"18\"/   使用p   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\" xmlns:p=\"http://www.springframework.org/schema/p\"  id=\"user\" class=\"life.jinjiang.User\" p:name=\"Jin\" p:age=\"18\"/  设置空值   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\"  name=\"age\" value=\"18\"/   注入 准备对象 public class UserService { private User user; public User getUser() { return user; } public void setUser(User user) { this.user = user; } @Override public String toString() { return \"UserService{\" + \"user=\" + user + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); UserService userService = (UserService) classPathXmlApplicationContext.getBean(\"userService\"); System.out.println(userService); } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\" ref=\"user\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" -- --   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\" ref=\"user\"/  name=\"user.name\" value=\"Jin\"/  name=\"user.age\" value=\"18\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" -- --   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/     作用域 单实例：singleton默认，读取配置文件时就创建\n多实例：prototype，创建对象时才创建\npublic class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); User user2 = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user==user2); } } 默认单实例输出true\n更改配置文件\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" scope=\"prototype\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   多实例输出false\n生命周期 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; System.out.println(\"执行setter方法\"); } public User() { System.out.println(\"执行构造方法\"); } public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } public void initMethod() { System.out.println(\"执行init方法\"); } public void destroyMethod() { System.out.println(\"执行destroy方法\"); } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); classPathXmlApplicationContext.close(); } } 输出\n执行构造方法 执行setter方法 执行init方法 执行destroy方法 后置处理器 public class MyBeanPost implements BeanPostProcessor { @Override public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException { System.out.println(\"执行postProcessBeforeInitialization方法\"); return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName); } @Override public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException { System.out.println(\"执行postProcessAfterInitialization方法\"); return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName); } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" init-method=\"initMethod\" destroy-method=\"destroyMethod\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"myBeanPost\" class=\"life.jinjiang.MyBeanPost\"/  执行构造方法 执行setter方法 执行postProcessBeforeInitialization方法 执行init方法 执行postProcessAfterInitialization方法 执行destroy方法 自动装配 autowire属性有两种常用的值：ByName和ByType\nByName：根据对象名称来匹配\nByType：根据对象类型来匹配\npublic class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class UserService { private User user; public User getUser() { return user; } public void setUser(User user) { this.user = user; } @Override public String toString() { return \"UserService{\" + \"user=\" + user + '}'; } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"userService\" class=\"life.jinjiang.UserService\" autowire=\"byName\"/  public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); UserService userService = (UserService) classPathXmlApplicationContext.getBean(\"userService\"); System.out.println(userService); } } Bean（使用注解） ","wordCount":"765","inLanguage":"zh","datePublished":"2022-02-08T14:45:56+08:00","dateModified":"2022-02-08T14:45:56+08:00","author":[{"@type":"Person","name":"Jin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/spring-bean/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spring Bean","name":"Spring Bean","description":"〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\n一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \u0026#34;User{\u0026#34; + \u0026#34;name=\u0026#39;\u0026#34; + name + \u0026#39;\\\u0026#39;\u0026#39; + \u0026#34;, age=\u0026#34; + age + \u0026#39;}\u0026#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\u0026#34;Bean.","keywords":["Java","Spring"],"articleBody":"〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。\nxml解析、工厂模式、反射。\n一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user); } } 1.0.1、使用无参构造和setter方法   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   1.0.2、使用有参构造方法   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/ --  name=\"age\" value=\"18\"/   1.0.3、使用p   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\" xmlns:p=\"http://www.springframework.org/schema/p\"  id=\"user\" class=\"life.jinjiang.User\" p:name=\"Jin\" p:age=\"18\"/  1.0.4、设置空值   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\"  name=\"age\" value=\"18\"/   1.1、注入 准备对象 public class UserService { private User user; public User getUser() { return user; } public void setUser(User user) { this.user = user; } @Override public String toString() { return \"UserService{\" + \"user=\" + user + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); UserService userService = (UserService) classPathXmlApplicationContext.getBean(\"userService\"); System.out.println(userService); } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\" ref=\"user\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" -- --   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\" ref=\"user\"/  name=\"user.name\" value=\"Jin\"/  name=\"user.age\" value=\"18\"/     xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" -- --   id=\"userService\" class=\"life.jinjiang.UserService\"  name=\"user\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/     1.2、作用域 单实例：singleton默认，读取配置文件时就创建\n多实例：prototype，创建对象时才创建\npublic class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); User user2 = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user==user2); } } 默认单实例输出true\n更改配置文件\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" scope=\"prototype\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   多实例输出false\n1.3、生命周期 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; System.out.println(\"执行setter方法\"); } public User() { System.out.println(\"执行构造方法\"); } public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } public void initMethod() { System.out.println(\"执行init方法\"); } public void destroyMethod() { System.out.println(\"执行destroy方法\"); } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); classPathXmlApplicationContext.close(); } } 输出\n执行构造方法 执行setter方法 执行init方法 执行destroy方法 后置处理器 public class MyBeanPost implements BeanPostProcessor { @Override public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException { System.out.println(\"执行postProcessBeforeInitialization方法\"); return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName); } @Override public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException { System.out.println(\"执行postProcessAfterInitialization方法\"); return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName); } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\" init-method=\"initMethod\" destroy-method=\"destroyMethod\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"myBeanPost\" class=\"life.jinjiang.MyBeanPost\"/  执行构造方法 执行setter方法 执行postProcessBeforeInitialization方法 执行init方法 执行postProcessAfterInitialization方法 执行destroy方法 1.4、自动装配 autowire属性有两种常用的值：ByName和ByType\nByName：根据对象名称来匹配\nByType：根据对象类型来匹配\npublic class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class UserService { private User user; public User getUser() { return user; } public void setUser(User user) { this.user = user; } @Override public String toString() { return \"UserService{\" + \"user=\" + user + '}'; } }   xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  id=\"user\" class=\"life.jinjiang.User\"  name=\"name\" value=\"Jin\"/  name=\"age\" value=\"18\"/   id=\"userService\" class=\"life.jinjiang.UserService\" autowire=\"byName\"/  public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); UserService userService = (UserService) classPathXmlApplicationContext.getBean(\"userService\"); System.out.println(userService); } } 二、Bean（使用注解） 使用Bean创建对象 注解有四种\n@Component：\n@Service：\n@Controller：\n@Repository：\n功能都一样\n  xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:context=\"http://www.springframework.org/schema/context\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd\"  base-package=\"life.jinjiang\"/  import org.springframework.stereotype.Component; @Component public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return \"User{\" + \"name='\" + name + '\\'' + \", age=\" + age + '}'; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(\"Bean.xml\"); User user = (User) classPathXmlApplicationContext.getBean(\"user\"); System.out.println(user); } } 组件扫描配置 扫描life.jinjiang下的所有包和子包\n base-package=\"life.jinjiang\"/ 只扫描life.jinjiang下的@Component注解标注的类\n base-package=\"life.jinjiang\" use-default-filters=\"false\"  type=\"annotation\" expression=\"org.springframework.stereotype.Component\"/  扫描life.jinjiang下的除了@Controller下的包\n base-package=\"life.jinjiang\"  type=\"annotation\" expression=\"org.springframework.stereotype.Controller\"/  注入 ","wordCount":"912","inLanguage":"zh","datePublished":"2022-02-08T14:45:56+08:00","dateModified":"2022-02-08T14:45:56+08:00","author":[{"@type":"Person","name":"Jin"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/spring-bean/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -76,7 +76,7 @@ Bean（使用xml） 使用Bean创建对象 准备对象 public class User { priv
 <h1 class=post-title>
 Spring Bean
 </h1>
-<div class=post-meta><span title="2022-02-08 14:45:56 +0800 CST">February 8, 2022</span>&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;Jin
+<div class=post-meta><span title="2022-02-08 14:45:56 +0800 CST">February 8, 2022</span>&nbsp;·&nbsp;5 分钟&nbsp;·&nbsp;Jin
 </div>
 </header> <div class=toc>
 <details>
@@ -85,50 +85,58 @@ Spring Bean
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#ioc%e6%8e%a7%e5%88%b6%e5%8f%8d%e8%bd%ac aria-label=IOC控制反转><code>IOC</code>控制反转</a></li>
+<a href=#ioc%e6%8e%a7%e5%88%b6%e5%8f%8d%e8%bd%ac aria-label=〇、IOC控制反转>〇、<code>IOC</code>控制反转</a></li>
 <li>
-<a href=#bean%e4%bd%bf%e7%94%a8xml aria-label=Bean（使用xml）><code>Bean</code>（使用<code>xml</code>）</a><ul>
+<a href=#%e4%b8%80bean%e4%bd%bf%e7%94%a8xml aria-label=一、Bean（使用xml）>一、<code>Bean</code>（使用<code>xml</code>）</a><ul>
 <li>
-<a href=#%e4%bd%bf%e7%94%a8bean%e5%88%9b%e5%bb%ba%e5%af%b9%e8%b1%a1 aria-label=使用Bean创建对象>使用<code>Bean</code>创建对象</a><ul>
+<a href=#10%e4%bd%bf%e7%94%a8bean%e5%88%9b%e5%bb%ba%e5%af%b9%e8%b1%a1 aria-label=1.0、使用Bean创建对象>1.0、使用<code>Bean</code>创建对象</a><ul>
 <li>
-<a href=#%e5%87%86%e5%a4%87%e5%af%b9%e8%b1%a1 aria-label=准备对象>准备对象</a></li>
+<a href=#100%e5%87%86%e5%a4%87%e5%af%b9%e8%b1%a1 aria-label=1.0.0、准备对象>1.0.0、准备对象</a></li>
 <li>
-<a href=#%e4%bd%bf%e7%94%a8%e6%97%a0%e5%8f%82%e6%9e%84%e9%80%a0%e5%92%8csetter%e6%96%b9%e6%b3%95 aria-label=使用无参构造和setter方法>使用无参构造和<code>setter</code>方法</a></li>
+<a href=#101%e4%bd%bf%e7%94%a8%e6%97%a0%e5%8f%82%e6%9e%84%e9%80%a0%e5%92%8csetter%e6%96%b9%e6%b3%95 aria-label=1.0.1、使用无参构造和setter方法>1.0.1、使用无参构造和<code>setter</code>方法</a></li>
 <li>
-<a href=#%e4%bd%bf%e7%94%a8%e6%9c%89%e5%8f%82%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95 aria-label=使用有参构造方法>使用有参构造方法</a></li>
+<a href=#102%e4%bd%bf%e7%94%a8%e6%9c%89%e5%8f%82%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95 aria-label=1.0.2、使用有参构造方法>1.0.2、使用有参构造方法</a></li>
 <li>
-<a href=#%e4%bd%bf%e7%94%a8p aria-label=使用p>使用<code>p</code></a></li>
+<a href=#103%e4%bd%bf%e7%94%a8p aria-label=1.0.3、使用p>1.0.3、使用<code>p</code></a></li>
 <li>
-<a href=#%e8%ae%be%e7%bd%ae%e7%a9%ba%e5%80%bc aria-label=设置空值>设置空值</a></li></ul>
+<a href=#104%e8%ae%be%e7%bd%ae%e7%a9%ba%e5%80%bc aria-label=1.0.4、设置空值>1.0.4、设置空值</a></li></ul>
 </li>
 <li>
-<a href=#%e6%b3%a8%e5%85%a5 aria-label=注入>注入</a><ul>
+<a href=#11%e6%b3%a8%e5%85%a5 aria-label=1.1、注入>1.1、注入</a><ul>
 <li>
-<a href=#%e5%87%86%e5%a4%87%e5%af%b9%e8%b1%a1-1 aria-label=准备对象>准备对象</a></li></ul>
+<a href=#%e5%87%86%e5%a4%87%e5%af%b9%e8%b1%a1 aria-label=准备对象>准备对象</a></li></ul>
 </li>
 <li>
-<a href=#%e4%bd%9c%e7%94%a8%e5%9f%9f aria-label=作用域>作用域</a></li>
+<a href=#12%e4%bd%9c%e7%94%a8%e5%9f%9f aria-label=1.2、作用域>1.2、作用域</a></li>
 <li>
-<a href=#%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f aria-label=生命周期>生命周期</a><ul>
+<a href=#13%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f aria-label=1.3、生命周期>1.3、生命周期</a><ul>
 <li>
 <a href=#%e5%90%8e%e7%bd%ae%e5%a4%84%e7%90%86%e5%99%a8 aria-label=后置处理器>后置处理器</a></li></ul>
 </li>
 <li>
-<a href=#%e8%87%aa%e5%8a%a8%e8%a3%85%e9%85%8d aria-label=自动装配>自动装配</a></li></ul>
+<a href=#14%e8%87%aa%e5%8a%a8%e8%a3%85%e9%85%8d aria-label=1.4、自动装配>1.4、自动装配</a></li></ul>
 </li>
 <li>
-<a href=#bean%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3 aria-label=Bean（使用注解）><code>Bean</code>（使用注解）</a>
+<a href=#%e4%ba%8cbean%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3 aria-label=二、Bean（使用注解）>二、<code>Bean</code>（使用注解）</a><ul>
+<li>
+<a href=#%e4%bd%bf%e7%94%a8bean%e5%88%9b%e5%bb%ba%e5%af%b9%e8%b1%a1 aria-label=使用Bean创建对象>使用<code>Bean</code>创建对象</a></li>
+<li>
+<a href=#%e7%bb%84%e4%bb%b6%e6%89%ab%e6%8f%8f%e9%85%8d%e7%bd%ae aria-label=组件扫描配置>组件扫描配置</a></li>
+<li>
+<a href=#%e6%b3%a8%e5%85%a5 aria-label=注入>注入</a>
+</li>
+</ul>
 </li>
 </ul>
 </div>
 </details>
 </div>
-<div class=post-content><h3 id=ioc控制反转><code>IOC</code>控制反转<a hidden class=anchor aria-hidden=true href=#ioc控制反转>#</a></h3>
+<div class=post-content><h3 id=ioc控制反转>〇、<code>IOC</code>控制反转<a hidden class=anchor aria-hidden=true href=#ioc控制反转>#</a></h3>
 <p>把对象创建和对象之间的调用交给<code>Spring</code>进行管理，降低耦合度。</p>
 <p><code>xml</code>解析、工厂模式、反射。</p>
-<h3 id=bean使用xml><code>Bean</code>（使用<code>xml</code>）<a hidden class=anchor aria-hidden=true href=#bean使用xml>#</a></h3>
-<h4 id=使用bean创建对象>使用<code>Bean</code>创建对象<a hidden class=anchor aria-hidden=true href=#使用bean创建对象>#</a></h4>
-<h5 id=准备对象>准备对象<a hidden class=anchor aria-hidden=true href=#准备对象>#</a></h5>
+<h3 id=一bean使用xml>一、<code>Bean</code>（使用<code>xml</code>）<a hidden class=anchor aria-hidden=true href=#一bean使用xml>#</a></h3>
+<h4 id=10使用bean创建对象>1.0、使用<code>Bean</code>创建对象<a hidden class=anchor aria-hidden=true href=#10使用bean创建对象>#</a></h4>
+<h5 id=100准备对象>1.0.0、准备对象<a hidden class=anchor aria-hidden=true href=#100准备对象>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> String name<span style=color:#f92672>;</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>;</span>
@@ -171,7 +179,7 @@ Spring Bean
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>user<span style=color:#f92672>);</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h5 id=使用无参构造和setter方法>使用无参构造和<code>setter</code>方法<a hidden class=anchor aria-hidden=true href=#使用无参构造和setter方法>#</a></h5>
+</code></pre></div><h5 id=101使用无参构造和setter方法>1.0.1、使用无参构造和<code>setter</code>方法<a hidden class=anchor aria-hidden=true href=#101使用无参构造和setter方法>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
        <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
@@ -181,7 +189,7 @@ Spring Bean
         <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
     <span style=color:#f92672>&lt;/bean&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
-</code></pre></div><h5 id=使用有参构造方法>使用有参构造方法<a hidden class=anchor aria-hidden=true href=#使用有参构造方法>#</a></h5>
+</code></pre></div><h5 id=102使用有参构造方法>1.0.2、使用有参构造方法<a hidden class=anchor aria-hidden=true href=#102使用有参构造方法>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
        <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
@@ -192,7 +200,7 @@ Spring Bean
         <span style=color:#f92672>&lt;constructor-arg</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
     <span style=color:#f92672>&lt;/bean&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
-</code></pre></div><h5 id=使用p>使用<code>p</code><a hidden class=anchor aria-hidden=true href=#使用p>#</a></h5>
+</code></pre></div><h5 id=103使用p>1.0.3、使用<code>p</code><a hidden class=anchor aria-hidden=true href=#103使用p>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
        <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
@@ -200,7 +208,7 @@ Spring Bean
        <span style=color:#a6e22e>xmlns:p=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/p&#34;</span><span style=color:#f92672>&gt;</span>
     <span style=color:#f92672>&lt;bean</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;user&#34;</span> <span style=color:#a6e22e>class=</span><span style=color:#e6db74>&#34;life.jinjiang.User&#34;</span> <span style=color:#a6e22e>p:name=</span><span style=color:#e6db74>&#34;Jin&#34;</span> <span style=color:#a6e22e>p:age=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
-</code></pre></div><h5 id=设置空值>设置空值<a hidden class=anchor aria-hidden=true href=#设置空值>#</a></h5>
+</code></pre></div><h5 id=104设置空值>1.0.4、设置空值<a hidden class=anchor aria-hidden=true href=#104设置空值>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
        <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans
@@ -210,8 +218,8 @@ Spring Bean
         <span style=color:#f92672>&lt;property</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>value=</span><span style=color:#e6db74>&#34;18&#34;</span><span style=color:#f92672>/&gt;</span>
     <span style=color:#f92672>&lt;/bean&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
-</code></pre></div><h4 id=注入>注入<a hidden class=anchor aria-hidden=true href=#注入>#</a></h4>
-<h5 id=准备对象-1>准备对象<a hidden class=anchor aria-hidden=true href=#准备对象-1>#</a></h5>
+</code></pre></div><h4 id=11注入>1.1、注入<a hidden class=anchor aria-hidden=true href=#11注入>#</a></h4>
+<h5 id=准备对象>准备对象<a hidden class=anchor aria-hidden=true href=#准备对象>#</a></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserService</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> User user<span style=color:#f92672>;</span>
 
@@ -280,7 +288,7 @@ Spring Bean
         <span style=color:#f92672>&lt;/property&gt;</span>
     <span style=color:#f92672>&lt;/bean&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
-</code></pre></div><h4 id=作用域>作用域<a hidden class=anchor aria-hidden=true href=#作用域>#</a></h4>
+</code></pre></div><h4 id=12作用域>1.2、作用域<a hidden class=anchor aria-hidden=true href=#12作用域>#</a></h4>
 <p>单实例：<code>singleton</code>默认，读取配置文件时就创建</p>
 <p>多实例：<code>prototype</code>，创建对象时才创建</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainApplication</span> <span style=color:#f92672>{</span>
@@ -303,7 +311,7 @@ Spring Bean
     <span style=color:#f92672>&lt;/bean&gt;</span>
 <span style=color:#f92672>&lt;/beans&gt;</span>
 </code></pre></div><p>多实例输出<code>false</code></p>
-<h4 id=生命周期>生命周期<a hidden class=anchor aria-hidden=true href=#生命周期>#</a></h4>
+<h4 id=13生命周期>1.3、生命周期<a hidden class=anchor aria-hidden=true href=#13生命周期>#</a></h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> String name<span style=color:#f92672>;</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>;</span>
@@ -392,7 +400,7 @@ Spring Bean
 执行init方法
 执行postProcessAfterInitialization方法
 执行destroy方法
-</code></pre><h4 id=自动装配>自动装配<a hidden class=anchor aria-hidden=true href=#自动装配>#</a></h4>
+</code></pre><h4 id=14自动装配>1.4、自动装配<a hidden class=anchor aria-hidden=true href=#14自动装配>#</a></h4>
 <p><code>autowire</code>属性有两种常用的值：<code>ByName</code>和<code>ByType</code></p>
 <p><code>ByName</code>：根据对象名称来匹配</p>
 <p><code>ByType</code>：根据对象类型来匹配</p>
@@ -466,7 +474,79 @@ Spring Bean
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>userService<span style=color:#f92672>);</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h3 id=bean使用注解><code>Bean</code>（使用注解）<a hidden class=anchor aria-hidden=true href=#bean使用注解>#</a></h3>
+</code></pre></div><h3 id=二bean使用注解>二、<code>Bean</code>（使用注解）<a hidden class=anchor aria-hidden=true href=#二bean使用注解>#</a></h3>
+<h4 id=使用bean创建对象>使用<code>Bean</code>创建对象<a hidden class=anchor aria-hidden=true href=#使用bean创建对象>#</a></h4>
+<p>注解有四种</p>
+<p><code>@Component</code>：</p>
+<p><code>@Service</code>：</p>
+<p><code>@Controller</code>：</p>
+<p><code>@Repository</code>：</p>
+<p>功能都一样</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style=color:#f92672>&lt;beans</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style=color:#a6e22e>xmlns:context=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span style=color:#e6db74>                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;context:component-scan</span> <span style=color:#a6e22e>base-package=</span><span style=color:#e6db74>&#34;life.jinjiang&#34;</span><span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/beans&gt;</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.springframework.stereotype.Component<span style=color:#f92672>;</span>
+
+<span style=color:#a6e22e>@Component</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>private</span> String name<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>;</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>User</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>age</span> <span style=color:#f92672>=</span> age<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getName</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> name<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setName</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>User</span><span style=color:#f92672>()</span> <span style=color:#f92672>{}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getAge</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> age<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setAge</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> age<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>age</span> <span style=color:#f92672>=</span> age<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;User{&#34;</span> <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#34;name=&#39;&#34;</span> <span style=color:#f92672>+</span> name <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#34;, age=&#34;</span> <span style=color:#f92672>+</span> age <span style=color:#f92672>+</span>
+                <span style=color:#e6db74>&#39;}&#39;</span><span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainApplication</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        ClassPathXmlApplicationContext classPathXmlApplicationContext <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ClassPathXmlApplicationContext<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bean.xml&#34;</span><span style=color:#f92672>);</span>
+        User user <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>User<span style=color:#f92672>)</span> classPathXmlApplicationContext<span style=color:#f92672>.</span><span style=color:#a6e22e>getBean</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;user&#34;</span><span style=color:#f92672>);</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>user<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><h4 id=组件扫描配置>组件扫描配置<a hidden class=anchor aria-hidden=true href=#组件扫描配置>#</a></h4>
+<p>扫描<code>life.jinjiang</code>下的所有包和子包</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;context:component-scan</span> <span style=color:#a6e22e>base-package=</span><span style=color:#e6db74>&#34;life.jinjiang&#34;</span><span style=color:#f92672>/&gt;</span>
+</code></pre></div><p>只扫描<code>life.jinjiang</code>下的<code>@Component</code>注解标注的类</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;context:component-scan</span> <span style=color:#a6e22e>base-package=</span><span style=color:#e6db74>&#34;life.jinjiang&#34;</span> <span style=color:#a6e22e>use-default-filters=</span><span style=color:#e6db74>&#34;false&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;context:include-filter</span> <span style=color:#a6e22e>type=</span><span style=color:#e6db74>&#34;annotation&#34;</span> <span style=color:#a6e22e>expression=</span><span style=color:#e6db74>&#34;org.springframework.stereotype.Component&#34;</span><span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/context:component-scan&gt;</span>
+</code></pre></div><p>扫描<code>life.jinjiang</code>下的除了<code>@Controller</code>下的包</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;context:component-scan</span> <span style=color:#a6e22e>base-package=</span><span style=color:#e6db74>&#34;life.jinjiang&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;context:exclude-filter</span> <span style=color:#a6e22e>type=</span><span style=color:#e6db74>&#34;annotation&#34;</span> <span style=color:#a6e22e>expression=</span><span style=color:#e6db74>&#34;org.springframework.stereotype.Controller&#34;</span><span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/context:component-scan&gt;</span>
+</code></pre></div><h4 id=注入>注入<a hidden class=anchor aria-hidden=true href=#注入>#</a></h4>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>

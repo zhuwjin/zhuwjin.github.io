@@ -6,17 +6,17 @@ author: ["Jin"]
 tags: ["Java", "Spring"]
 ---
 
-### `IOC`控制反转
+### 〇、`IOC`控制反转
 
 把对象创建和对象之间的调用交给`Spring`进行管理，降低耦合度。
 
 `xml`解析、工厂模式、反射。
 
-### `Bean`（使用`xml`）
+### 一、`Bean`（使用`xml`）
 
-#### 使用`Bean`创建对象
+#### 1.0、使用`Bean`创建对象
 
-##### 准备对象
+##### 1.0.0、准备对象
 
 ```java
 public class User {
@@ -66,7 +66,7 @@ public class MainApplication {
 }
 ```
 
-##### 使用无参构造和`setter`方法
+##### 1.0.1、使用无参构造和`setter`方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,7 +80,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 </beans>
 ```
 
-##### 使用有参构造方法
+##### 1.0.2、使用有参构造方法
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -95,7 +95,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 </beans>
 ```
 
-##### 使用`p`
+##### 1.0.3、使用`p`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -107,7 +107,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd"
 </beans>
 ```
 
-##### 设置空值
+##### 1.0.4、设置空值
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -123,7 +123,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-#### 注入
+#### 1.1、注入
 
 ##### 准备对象
 
@@ -212,7 +212,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-#### 作用域
+#### 1.2、作用域
 
 单实例：`singleton`默认，读取配置文件时就创建
 
@@ -249,7 +249,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-#### 生命周期
+#### 1.3、生命周期
 
 ```java
 public class User {
@@ -369,7 +369,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-#### 自动装配
+#### 1.4、自动装配
 
 `autowire`属性有两种常用的值：`ByName`和`ByType`
 
@@ -461,5 +461,107 @@ public class MainApplication {
 
 
 
-### `Bean`（使用注解）
+### 二、`Bean`（使用注解）
+
+#### 使用`Bean`创建对象
+
+注解有四种
+
+`@Component`：
+
+`@Service`：
+
+`@Controller`：
+
+`@Repository`：
+
+功能都一样
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="life.jinjiang"/>
+</beans>
+```
+
+```java
+import org.springframework.stereotype.Component;
+
+@Component
+public class User {
+    private String name;
+    private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User() {}
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+```
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("Bean.xml");
+        User user = (User) classPathXmlApplicationContext.getBean("user");
+        System.out.println(user);
+    }
+}
+```
+
+#### 组件扫描配置
+
+扫描`life.jinjiang`下的所有包和子包
+
+```xml
+<context:component-scan base-package="life.jinjiang"/>
+```
+
+只扫描`life.jinjiang`下的`@Component`注解标注的类
+
+```xml
+<context:component-scan base-package="life.jinjiang" use-default-filters="false">
+    <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+</context:component-scan>
+```
+
+扫描`life.jinjiang`下的除了`@Controller`下的包
+
+```xml
+<context:component-scan base-package="life.jinjiang">
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+</context:component-scan>
+```
+
+#### 注入
 
