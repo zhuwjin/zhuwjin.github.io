@@ -463,7 +463,7 @@ public class MainApplication {
 
 ### 二、`Bean`（使用注解）
 
-#### 使用`Bean`创建对象
+#### 2.0、使用`Bean`创建对象
 
 注解有四种
 
@@ -539,7 +539,7 @@ public class MainApplication {
 }
 ```
 
-#### 组件扫描配置
+#### 2.1、组件扫描配置
 
 扫描`life.jinjiang`下的所有包和子包
 
@@ -563,5 +563,212 @@ public class MainApplication {
 </context:component-scan>
 ```
 
-#### 注入
+#### 2.2、注入
+
+##### 2.2.0、`@Autowired`
+
+`@Autowired`根据类型自动注入
+
+```java
+@Service
+public class UserService {
+    @Autowired
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "user=" + user +
+                '}';
+    }
+}
+```
+
+
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("Bean.xml");
+        UserService userService = (UserService) classPathXmlApplicationContext.getBean(UserService.class);
+        System.out.println(userService);
+    }
+}
+```
+
+
+
+##### 2.2.1、`@Qualifier`
+
+`@Qualifier`和`@Autowired`一起使用，根据属性名称自动注入
+
+在下面情况中只使用`@Autowired`会出错，因为`User`的实现有两个类，应该明确具体的类。
+
+```java
+public interface User {
+    void add();
+}
+```
+
+
+
+```java
+@Component
+public class UserImpl implements User {
+    private String name;
+    private int age;
+
+    public UserImpl(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UserImpl() {}
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+
+    @Override
+    public void add() {
+        System.out.println("add");
+    }
+}
+```
+
+
+
+```java
+@Component
+public class UserImpl2 implements User{
+    @Override
+    public void add() {
+        System.out.println("add");
+    }
+}
+```
+
+
+
+```java
+@Service
+public class UserService {
+    @Autowired
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(UserImpl user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "user=" + user +
+                '}';
+    }
+}
+```
+
+```
+nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'life.jinjiang.User' available: expected single matching bean but found 2: userImpl,userImpl2
+```
+
+在`@Autowired`下添加`@Qualifier("userImpl")`可指定`userImpl`类
+
+```java
+@Service
+public class UserService {
+    @Autowired
+    @Qualifier("userImpl")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(UserImpl user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "user=" + user +
+                '}';
+    }
+}
+```
+
+
+
+##### 2.2.2、`@Value`
+
+`@Value`可以注入值
+
+```java
+@Value("Jin")
+private String name;
+@Value("18")
+private int age;
+```
+
+
+
+#### 2.3、完全注解
+
+不使用`xml`配置文件
+
+创建一个配置类
+
+```java
+@Configuration
+@ComponentScan("life.jinjiang")
+public class MyConfig {
+}
+```
+
+
+
+```java
+public class MainApplication {
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
+        UserService userService = (UserService) applicationContext.getBean(UserService.class);
+        System.out.println(userService);
+    }
+}
+```
 
