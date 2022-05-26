@@ -2,22 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jinjiang.life/posts/</loc>
+    <lastmod>2022-05-26T18:18:10+08:00</lastmod>
+  </url><url>
+    <loc>https://jinjiang.life/</loc>
+    <lastmod>2022-05-26T18:18:10+08:00</lastmod>
+  </url><url>
+    <loc>https://jinjiang.life/posts/asm-01/</loc>
+    <lastmod>2022-05-26T18:18:10+08:00</lastmod>
+  </url><url>
     <loc>https://jinjiang.life/tags/java/</loc>
     <lastmod>2022-02-16T21:12:45+08:00</lastmod>
   </url><url>
     <loc>https://jinjiang.life/posts/java-springmvc/</loc>
     <lastmod>2022-02-16T21:12:45+08:00</lastmod>
   </url><url>
-    <loc>https://jinjiang.life/posts/</loc>
-    <lastmod>2022-02-16T21:12:45+08:00</lastmod>
-  </url><url>
     <loc>https://jinjiang.life/tags/spring/</loc>
     <lastmod>2022-02-16T21:12:45+08:00</lastmod>
   </url><url>
     <loc>https://jinjiang.life/tags/</loc>
-    <lastmod>2022-02-16T21:12:45+08:00</lastmod>
-  </url><url>
-    <loc>https://jinjiang.life/</loc>
     <lastmod>2022-02-16T21:12:45+08:00</lastmod>
   </url><url>
     <loc>https://jinjiang.life/posts/spring-aop/</loc>

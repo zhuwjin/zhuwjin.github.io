@@ -9,7 +9,16 @@
       <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 16 Feb 2022 21:12:45 +0800</lastBuildDate><atom:link href="https://jinjiang.life/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 May 2022 18:18:10 +0800</lastBuildDate><atom:link href="https://jinjiang.life/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用汇编(MASM)写的小程序</title>
+      <link>https://jinjiang.life/posts/asm-01/</link>
+      <pubDate>Thu, 26 May 2022 18:18:10 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/asm-01/</guid>
+      <description>extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db &amp;#39; MENU &amp;#39;  l1 db &amp;#39;=====================&amp;#39;  l2 db &amp;#39;| INPUT GRADE |&amp;#39;  l3 db &amp;#39;| EDIT GRADE |&amp;#39;  l4 db &amp;#39;| SORT GRADE |&amp;#39;  l5 db &amp;#39;| OUTPUT GRADE |&amp;#39;  l6 db &amp;#39;| EXIT |&amp;#39;  l7 db &amp;#39;=====================&amp;#39; ;l0-l6存要显示的菜单字符串  LL EQU $-l7 ;一个菜单字符串的长度  XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ?</description>
+    </item>
+    
     <item>
       <title>Java SpringMVC</title>
       <link>https://jinjiang.life/posts/java-springmvc/</link>
