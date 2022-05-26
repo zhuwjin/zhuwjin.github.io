@@ -1,169 +1,169 @@
-<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>用汇编(MASM)写的小程序 | 锦酱的博客</title><meta name=keywords content><meta name=description content="extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db ' MENU '  l1 db '====================='  l2 db '| INPUT GRADE |'  l3 db '| EDIT GRADE |'  l4 db '| SORT GRADE |'  l5 db '| OUTPUT GRADE |'  l6 db '| EXIT |'  l7 db '=====================' ;l0-l6存要显示的菜单字符串  LL EQU $-l7 ;一个菜单字符串的长度  XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ?"><meta name=author content="Me"><link rel=canonical href=https://jinjiang.life/posts/asm-01/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="用汇编(MASM)写的小程序"><meta property="og:description" content="extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db ' MENU '  l1 db '====================='  l2 db '| INPUT GRADE |'  l3 db '| EDIT GRADE |'  l4 db '| SORT GRADE |'  l5 db '| OUTPUT GRADE |'  l6 db '| EXIT |'  l7 db '=====================' ;l0-l6存要显示的菜单字符串  LL EQU $-l7 ;一个菜单字符串的长度  XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ?"><meta property="og:type" content="article"><meta property="og:url" content="https://jinjiang.life/posts/asm-01/"><meta property="og:image" content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-05-26T18:18:10+08:00"><meta property="article:modified_time" content="2022-05-26T18:18:10+08:00"><meta property="og:site_name" content="锦酱的博客"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="用汇编(MASM)写的小程序"><meta name=twitter:description content="extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db ' MENU '  l1 db '====================='  l2 db '| INPUT GRADE |'  l3 db '| EDIT GRADE |'  l4 db '| SORT GRADE |'  l5 db '| OUTPUT GRADE |'  l6 db '| EXIT |'  l7 db '=====================' ;l0-l6存要显示的菜单字符串  LL EQU $-l7 ;一个菜单字符串的长度  XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ?"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"用汇编(MASM)写的小程序","item":"https://jinjiang.life/posts/asm-01/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"用汇编(MASM)写的小程序","name":"用汇编(MASM)写的小程序","description":"extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db \u0026#39; MENU \u0026#39;  l1 db \u0026#39;=====================\u0026#39;  l2 db \u0026#39;| INPUT GRADE |\u0026#39;  l3 db \u0026#39;| EDIT GRADE |\u0026#39;  l4 db \u0026#39;| SORT GRADE |\u0026#39;  l5 db \u0026#39;| OUTPUT GRADE |\u0026#39;  l6 db \u0026#39;| EXIT |\u0026#39;  l7 db \u0026#39;=====================\u0026#39; ;l0-l6存要显示的菜单字符串  LL EQU $-l7 ;一个菜单字符串的长度  XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ?","keywords":[],"articleBody":"extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db ' MENU '  l1 db '====================='  l2 db '| INPUT GRADE |'  l3 db '| EDIT GRADE |'  l4 db '| SORT GRADE |'  l5 db '| OUTPUT GRADE |'  l6 db '| EXIT |'  l7 db '=====================' ;l0-l6存要显示的菜单字符串  LL EQU $-l7 ;一个菜单字符串的长度  XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ? ;行号（相对屏幕第一行）  nn dw 1 ;行号（相对l0行）  tab dw ?,l2,l3,l4,l5,l6 ;记录字符串的偏移地址  addr dw ? ;字符串偏移量  grade db 50 dup(5 dup(?), 10 dup(?), 3 dup (?))  count db 0 data ends     stack segment para stack 'stack' ;堆栈段  db 256 dup(0) stack ends  code segment  assume cs:code,ss:stack,ds:data  start:  mov ax, data  mov ds, ax  mov es, ax last1:  mov ax, 3  int 10h ;设置显示模式  mov yy, 8 ;让屏幕上方有8个空行  mov addr, offset l0 ;将偏移量变量设为l0，准备打印l0行的内容 last2:  disp xx, ll, 0fh ;先以无颜色打印所有行  add addr, ll ;  inc yy ;  cmp yy, 16 ;  jl last2 ;  mov nn, 1 ;将当前行号设为1，准备将第一行上色  call compute ;计算需要刷新的字符串的偏移量  disp xx+4, ll-8, 51h ;上色刷新,+4表示前面4个字符不刷新,-8表示后面8个字符不刷新,51为颜色编号    scan:  mov ah, 1  int 16h ;扫描是否键盘有输入  jz scan ;没有输入就继续扫描，有则判断并处理  mov ah, 0  int 16h ;获取键盘输入的ascii码  cmp ah, 80 ;80为下键  je down ;转到下键的处理代码  cmp ah, 72 ;72为上键  je up ;转到上键的处理代码  cmp al, 0dh ;0dh为回车  je enter  jmp scan  down: ;下键的处理代码  cmp nn, 5 ;行号为5则到底了，不处理  je scan  call compute ;计算当前行需要刷新的字符串的偏移量  disp xx+4, ll-8, 0fh ;将当前的一行颜色复原  inc nn ;移动到下一行  call compute  disp xx+4, ll-8, 51h ;将颜色改变表示预选中这一行  jmp scan ;返回继续扫描键盘接下来的操作  up:  cmp nn, 1  je scan  call compute  disp xx+4, ll-8, 0fh  dec nn ;和下键的处理代码一样，只是需要判断上界和向上移动  call compute  disp xx+4, ll-8, 51h  jmp scan   enter:  cmp nn, 1 ;成绩录入  jne next2  xor ax, ax  mov al, count  mov ah, 18  mul ah  mov dx, offset grade  add dx, ax  ;mov bl, count  inc count  call input  next2:  cmp nn, 2 ;成绩修改  jne next3  call edit  next3:  cmp nn, 3 ;成绩排序  jne next4  call sort  next4:  cmp nn, 4 ;成绩输出  jne next5  mov dx, offset grade  mov bl, count  call output  next5:  cmp nn, 5 ;退出  je exit  jmp last1  exit:  mov dx, offset grade  mov ah, 9  int 21h  mov dl, 'z'  mov ah, 02h  int 21h  mov al,byte ptr nn  mov ah,4ch  int 21h     compute proc near ;计算需要刷新的字符串的偏移量  mov di,nn  add di,di ;因为tab存的是dw类型所以要乘以2  mov ax,tab[di] ;找到当前行的字符串偏移量  add ax,4 ;因为前面有四个其他字符不用刷新上色，所以加4  mov addr,ax ;将计算出的偏移量存起来  mov al,byte ptr nn  add al,9  mov yy,al ;相对l0的行数+9位相对屏幕的行数  ret compute endp   code ends  end start ","wordCount":"405","inLanguage":"zh","datePublished":"2022-05-26T18:18:10+08:00","dateModified":"2022-05-26T18:18:10+08:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/asm-01/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://jinjiang.life accesskey=h title="锦酱的博客 (Alt + H)">锦酱的博客</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu><li><a href=https://jinjiang.life/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://jinjiang.life/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://jinjiang.life>主页</a>&nbsp;»&nbsp;<a href=https://jinjiang.life/posts/>Posts</a></div><h1 class=post-title>用汇编(MASM)写的小程序</h1><div class=post-meta><span title="2022-05-26 18:18:10 +0800 CST">五月 26, 2022</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Me</div></header><div class=post-content><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-asm data-lang=asm><span style=display:flex><span><span style=color:#a6e22e>extrn</span> <span style=color:#66d9ef>input</span>:<span style=color:#66d9ef>far</span>, <span style=color:#66d9ef>edit</span>:<span style=color:#66d9ef>far</span>, <span style=color:#66d9ef>sort</span>:<span style=color:#66d9ef>far</span>, <span style=color:#66d9ef>output</span>:<span style=color:#66d9ef>far</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>disp</span> <span style=color:#66d9ef>macro</span> <span style=color:#66d9ef>x</span>,<span style=color:#66d9ef>length</span>,<span style=color:#66d9ef>color</span>               <span style=color:#75715e>;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>     <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>ax</span>,<span style=color:#ae81ff>1301</span><span style=color:#66d9ef>h</span>
-</span></span><span style=display:flex><span>     <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>bx</span>,<span style=color:#66d9ef>color</span>
-</span></span><span style=display:flex><span>     <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>cx</span>,<span style=color:#66d9ef>length</span>
-</span></span><span style=display:flex><span>     <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>dh</span>,<span style=color:#66d9ef>yy</span>
-</span></span><span style=display:flex><span>     <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>dl</span>,<span style=color:#66d9ef>x</span>
-</span></span><span style=display:flex><span>     <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>bp</span>,<span style=color:#66d9ef>addr</span>
-</span></span><span style=display:flex><span>     <span style=color:#a6e22e>int</span> <span style=color:#ae81ff>10</span><span style=color:#66d9ef>h</span>                            <span style=color:#75715e>;10号BIOS调用
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>     <span style=color:#66d9ef>endm</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>data</span> <span style=color:#66d9ef>segment</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l0</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;</span>        <span style=color:#66d9ef>MENU</span>         <span style=color:#960050;background-color:#1e0010>&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l1</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;=====================&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l2</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;|</span>   <span style=color:#66d9ef>INPUT</span>  <span style=color:#66d9ef>GRADE</span>    <span style=color:#960050;background-color:#1e0010>|&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l3</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;|</span>   <span style=color:#66d9ef>EDIT</span>   <span style=color:#66d9ef>GRADE</span>    <span style=color:#960050;background-color:#1e0010>|&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l4</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;|</span>   <span style=color:#66d9ef>SORT</span>   <span style=color:#66d9ef>GRADE</span>    <span style=color:#960050;background-color:#1e0010>|&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l5</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;|</span>   <span style=color:#66d9ef>OUTPUT</span> <span style=color:#66d9ef>GRADE</span>    <span style=color:#960050;background-color:#1e0010>|&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l6</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;|</span>   <span style=color:#66d9ef>EXIT</span>            <span style=color:#960050;background-color:#1e0010>|&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>l7</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>&#39;=====================&#39;</span>       <span style=color:#75715e>;l0-l6存要显示的菜单字符串
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>LL</span> <span style=color:#66d9ef>EQU</span> <span style=color:#66d9ef>$-l7</span>                         <span style=color:#75715e>;一个菜单字符串的长度
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>XX</span> <span style=color:#66d9ef>equ</span> (<span style=color:#ae81ff>80</span>-<span style=color:#66d9ef>ll</span>)<span style=color:#960050;background-color:#1e0010>/</span><span style=color:#ae81ff>2</span>                    <span style=color:#75715e>;xx输出是横向偏移量，让菜单显示在屏幕中间
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>yy</span> <span style=color:#66d9ef>db</span> <span style=color:#960050;background-color:#1e0010>?</span>                             <span style=color:#75715e>;行号（相对屏幕第一行）
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>nn</span> <span style=color:#66d9ef>dw</span> <span style=color:#ae81ff>1</span>                             <span style=color:#75715e>;行号（相对l0行）
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>tab</span> <span style=color:#66d9ef>dw</span> <span style=color:#960050;background-color:#1e0010>?</span>,<span style=color:#66d9ef>l2</span>,<span style=color:#66d9ef>l3</span>,<span style=color:#66d9ef>l4</span>,<span style=color:#66d9ef>l5</span>,<span style=color:#66d9ef>l6</span>             <span style=color:#75715e>;记录字符串的偏移地址
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>addr</span> <span style=color:#66d9ef>dw</span> <span style=color:#960050;background-color:#1e0010>?</span>                           <span style=color:#75715e>;字符串偏移量
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>grade</span> <span style=color:#66d9ef>db</span> <span style=color:#ae81ff>50</span> <span style=color:#66d9ef>dup</span>(<span style=color:#ae81ff>5</span> <span style=color:#66d9ef>dup</span>(<span style=color:#960050;background-color:#1e0010>?</span>), <span style=color:#ae81ff>10</span> <span style=color:#66d9ef>dup</span>(<span style=color:#960050;background-color:#1e0010>?</span>), <span style=color:#ae81ff>3</span> <span style=color:#66d9ef>dup</span> (<span style=color:#960050;background-color:#1e0010>?</span>))
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>count</span> <span style=color:#66d9ef>db</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>data</span> <span style=color:#66d9ef>ends</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>stack</span> <span style=color:#66d9ef>segment</span> <span style=color:#66d9ef>para</span> <span style=color:#66d9ef>stack</span> <span style=color:#960050;background-color:#1e0010>&#39;</span><span style=color:#66d9ef>stack</span><span style=color:#960050;background-color:#1e0010>&#39;</span>        <span style=color:#75715e>;堆栈段
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>db</span> <span style=color:#ae81ff>256</span> <span style=color:#66d9ef>dup</span>(<span style=color:#ae81ff>0</span>)
-</span></span><span style=display:flex><span><span style=color:#a6e22e>stack</span> <span style=color:#66d9ef>ends</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>code</span> <span style=color:#66d9ef>segment</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>assume</span> <span style=color:#66d9ef>cs</span>:<span style=color:#66d9ef>code</span>,<span style=color:#66d9ef>ss</span>:<span style=color:#66d9ef>stack</span>,<span style=color:#66d9ef>ds</span>:<span style=color:#66d9ef>data</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>start:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ax</span>, <span style=color:#66d9ef>data</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ds</span>, <span style=color:#66d9ef>ax</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>es</span>, <span style=color:#66d9ef>ax</span>
-</span></span><span style=display:flex><span>last1:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ax</span>, <span style=color:#ae81ff>3</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>int</span> <span style=color:#ae81ff>10</span><span style=color:#66d9ef>h</span>                             <span style=color:#75715e>;设置显示模式
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>yy</span>, <span style=color:#ae81ff>8</span>                           <span style=color:#75715e>;让屏幕上方有8个空行
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>addr</span>, <span style=color:#66d9ef>offset</span> <span style=color:#66d9ef>l0</span>                 <span style=color:#75715e>;将偏移量变量设为l0，准备打印l0行的内容
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>last2</span>:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>disp</span> <span style=color:#66d9ef>xx</span>, <span style=color:#66d9ef>ll</span>, <span style=color:#ae81ff>0</span><span style=color:#66d9ef>fh</span>                    <span style=color:#75715e>;先以无颜色打印所有行
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>add</span> <span style=color:#66d9ef>addr</span>, <span style=color:#66d9ef>ll</span>                        <span style=color:#75715e>;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>inc</span> <span style=color:#66d9ef>yy</span>                              <span style=color:#75715e>;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>cmp</span> <span style=color:#66d9ef>yy</span>, <span style=color:#ae81ff>16</span>                          <span style=color:#75715e>;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jl</span> <span style=color:#66d9ef>last2</span>                            <span style=color:#75715e>;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>1</span>                           <span style=color:#75715e>;将当前行号设为1，准备将第一行上色 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>call</span> <span style=color:#66d9ef>compute</span>                        <span style=color:#75715e>;计算需要刷新的字符串的偏移量
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>disp</span> <span style=color:#66d9ef>xx</span><span style=color:#960050;background-color:#1e0010>+</span><span style=color:#ae81ff>4</span>, <span style=color:#66d9ef>ll-8</span>, <span style=color:#ae81ff>51</span><span style=color:#66d9ef>h</span>                <span style=color:#75715e>;上色刷新,+4表示前面4个字符不刷新,-8表示后面8个字符不刷新,51为颜色编号
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>scan:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>int</span> <span style=color:#ae81ff>16</span><span style=color:#66d9ef>h</span>                             <span style=color:#75715e>;扫描是否键盘有输入
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jz</span> <span style=color:#66d9ef>scan</span>                             <span style=color:#75715e>;没有输入就继续扫描，有则判断并处理
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>0</span>                           
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> <span style=color:#ae81ff>16</span><span style=color:#66d9ef>h</span>                             <span style=color:#75715e>;获取键盘输入的ascii码
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>cmp</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>80</span>                          <span style=color:#75715e>;80为下键
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>je</span> <span style=color:#66d9ef>down</span>                             <span style=color:#75715e>;转到下键的处理代码
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>cmp</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>72</span>                          <span style=color:#75715e>;72为上键
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>je</span> <span style=color:#66d9ef>up</span>                               <span style=color:#75715e>;转到上键的处理代码
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>cmp</span> <span style=color:#66d9ef>al</span>, <span style=color:#ae81ff>0</span><span style=color:#66d9ef>dh</span>                         <span style=color:#75715e>;0dh为回车
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>je</span> <span style=color:#66d9ef>enter</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>jmp</span> <span style=color:#66d9ef>scan</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>down:                                   <span style=color:#75715e>;下键的处理代码
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>5</span>                           <span style=color:#75715e>;行号为5则到底了，不处理
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>je</span> <span style=color:#66d9ef>scan</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>call</span> <span style=color:#66d9ef>compute</span>                        <span style=color:#75715e>;计算当前行需要刷新的字符串的偏移量
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>disp</span> <span style=color:#66d9ef>xx</span><span style=color:#960050;background-color:#1e0010>+</span><span style=color:#ae81ff>4</span>, <span style=color:#66d9ef>ll-8</span>, <span style=color:#ae81ff>0</span><span style=color:#66d9ef>fh</span>                <span style=color:#75715e>;将当前的一行颜色复原
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>inc</span> <span style=color:#66d9ef>nn</span>                              <span style=color:#75715e>;移动到下一行
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>call</span> <span style=color:#66d9ef>compute</span>                        
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>disp</span> <span style=color:#66d9ef>xx</span><span style=color:#960050;background-color:#1e0010>+</span><span style=color:#ae81ff>4</span>, <span style=color:#66d9ef>ll-8</span>, <span style=color:#ae81ff>51</span><span style=color:#66d9ef>h</span>                <span style=color:#75715e>;将颜色改变表示预选中这一行
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jmp</span> <span style=color:#66d9ef>scan</span>                            <span style=color:#75715e>;返回继续扫描键盘接下来的操作
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>up:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>je</span> <span style=color:#66d9ef>scan</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>call</span> <span style=color:#66d9ef>compute</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>disp</span> <span style=color:#66d9ef>xx</span><span style=color:#960050;background-color:#1e0010>+</span><span style=color:#ae81ff>4</span>, <span style=color:#66d9ef>ll-8</span>, <span style=color:#ae81ff>0</span><span style=color:#66d9ef>fh</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>dec</span> <span style=color:#66d9ef>nn</span>                              <span style=color:#75715e>;和下键的处理代码一样，只是需要判断上界和向上移动
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>call</span> <span style=color:#66d9ef>compute</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>disp</span> <span style=color:#66d9ef>xx</span><span style=color:#960050;background-color:#1e0010>+</span><span style=color:#ae81ff>4</span>, <span style=color:#66d9ef>ll-8</span>, <span style=color:#ae81ff>51</span><span style=color:#66d9ef>h</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>jmp</span> <span style=color:#66d9ef>scan</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>enter:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>1</span>                           <span style=color:#75715e>;成绩录入
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jne</span> <span style=color:#66d9ef>next2</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xor</span> <span style=color:#66d9ef>ax</span>, <span style=color:#66d9ef>ax</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>al</span>, <span style=color:#66d9ef>count</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>18</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mul</span> <span style=color:#66d9ef>ah</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>dx</span>, <span style=color:#66d9ef>offset</span> <span style=color:#66d9ef>grade</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>add</span> <span style=color:#66d9ef>dx</span>, <span style=color:#66d9ef>ax</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>;mov bl, count
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>inc</span> <span style=color:#66d9ef>count</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>call</span> <span style=color:#66d9ef>input</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>next2:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>2</span>                           <span style=color:#75715e>;成绩修改
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jne</span> <span style=color:#66d9ef>next3</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>call</span> <span style=color:#66d9ef>edit</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>next3:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>3</span>                           <span style=color:#75715e>;成绩排序
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jne</span> <span style=color:#66d9ef>next4</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>call</span> <span style=color:#66d9ef>sort</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>next4:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>4</span>                           <span style=color:#75715e>;成绩输出
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>jne</span> <span style=color:#66d9ef>next5</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>dx</span>, <span style=color:#66d9ef>offset</span> <span style=color:#66d9ef>grade</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>bl</span>, <span style=color:#66d9ef>count</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>call</span> <span style=color:#66d9ef>output</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>next5:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cmp</span> <span style=color:#66d9ef>nn</span>, <span style=color:#ae81ff>5</span>                           <span style=color:#75715e>;退出
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>je</span> <span style=color:#66d9ef>exit</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>jmp</span> <span style=color:#66d9ef>last1</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>exit:
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>dx</span>, <span style=color:#66d9ef>offset</span> <span style=color:#66d9ef>grade</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>9</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>int</span> <span style=color:#ae81ff>21</span><span style=color:#66d9ef>h</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>dl</span>, <span style=color:#960050;background-color:#1e0010>&#39;</span><span style=color:#66d9ef>z</span><span style=color:#960050;background-color:#1e0010>&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ah</span>, <span style=color:#ae81ff>02</span><span style=color:#66d9ef>h</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>int</span> <span style=color:#ae81ff>21</span><span style=color:#66d9ef>h</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>al</span>,<span style=color:#66d9ef>byte</span> <span style=color:#66d9ef>ptr</span> <span style=color:#66d9ef>nn</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>ah</span>,<span style=color:#ae81ff>4</span><span style=color:#66d9ef>ch</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>int</span> <span style=color:#ae81ff>21</span><span style=color:#66d9ef>h</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>compute</span> <span style=color:#66d9ef>proc</span> <span style=color:#66d9ef>near</span>                       <span style=color:#75715e>;计算需要刷新的字符串的偏移量
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>di</span>,<span style=color:#66d9ef>nn</span>                           
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>add</span> <span style=color:#66d9ef>di</span>,<span style=color:#66d9ef>di</span>                           <span style=color:#75715e>;因为tab存的是dw类型所以要乘以2
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>ax</span>,<span style=color:#66d9ef>tab</span>[<span style=color:#66d9ef>di</span>]                      <span style=color:#75715e>;找到当前行的字符串偏移量
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>add</span> <span style=color:#66d9ef>ax</span>,<span style=color:#ae81ff>4</span>                            <span style=color:#75715e>;因为前面有四个其他字符不用刷新上色，所以加4
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>addr</span>,<span style=color:#66d9ef>ax</span>                         <span style=color:#75715e>;将计算出的偏移量存起来
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>mov</span> <span style=color:#66d9ef>al</span>,<span style=color:#66d9ef>byte</span> <span style=color:#66d9ef>ptr</span> <span style=color:#66d9ef>nn</span>                  
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>add</span> <span style=color:#66d9ef>al</span>,<span style=color:#ae81ff>9</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mov</span> <span style=color:#66d9ef>yy</span>,<span style=color:#66d9ef>al</span>                           <span style=color:#75715e>;相对l0的行数+9位相对屏幕的行数
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>ret</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>compute</span> <span style=color:#66d9ef>endp</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>code</span> <span style=color:#66d9ef>ends</span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>end</span> <span style=color:#66d9ef>start</span>
-</span></span></code></pre></div></div><footer class=post-footer><nav class=paginav><a class=next href=https://jinjiang.life/posts/java-springmvc/><span class=title>下一页 »</span><br><span>Java SpringMVC</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2022 <a href=https://jinjiang.life>锦酱的博客</a></span>
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>用汇编(MASM)写的小程序 | 锦酱的博客</title><meta name=keywords content><meta name=description content="extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db ' MENU ' l1 db '=====================' l2 db '| INPUT GRADE |' l3 db '| EDIT GRADE |' l4 db '| SORT GRADE |' l5 db '| OUTPUT GRADE |' l6 db '| EXIT |' l7 db '=====================' ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?"><meta name=author content="Me"><link rel=canonical href=https://jinjiang.life/posts/asm-01/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://jinjiang.life/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="用汇编(MASM)写的小程序"><meta property="og:description" content="extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db ' MENU ' l1 db '=====================' l2 db '| INPUT GRADE |' l3 db '| EDIT GRADE |' l4 db '| SORT GRADE |' l5 db '| OUTPUT GRADE |' l6 db '| EXIT |' l7 db '=====================' ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?"><meta property="og:type" content="article"><meta property="og:url" content="https://jinjiang.life/posts/asm-01/"><meta property="og:image" content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-05-26T18:18:10+08:00"><meta property="article:modified_time" content="2022-05-26T18:18:10+08:00"><meta property="og:site_name" content="锦酱的博客"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="用汇编(MASM)写的小程序"><meta name=twitter:description content="extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db ' MENU ' l1 db '=====================' l2 db '| INPUT GRADE |' l3 db '| EDIT GRADE |' l4 db '| SORT GRADE |' l5 db '| OUTPUT GRADE |' l6 db '| EXIT |' l7 db '=====================' ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jinjiang.life/posts/"},{"@type":"ListItem","position":3,"name":"用汇编(MASM)写的小程序","item":"https://jinjiang.life/posts/asm-01/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"用汇编(MASM)写的小程序","name":"用汇编(MASM)写的小程序","description":"extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db \u0026#39; MENU \u0026#39; l1 db \u0026#39;=====================\u0026#39; l2 db \u0026#39;| INPUT GRADE |\u0026#39; l3 db \u0026#39;| EDIT GRADE |\u0026#39; l4 db \u0026#39;| SORT GRADE |\u0026#39; l5 db \u0026#39;| OUTPUT GRADE |\u0026#39; l6 db \u0026#39;| EXIT |\u0026#39; l7 db \u0026#39;=====================\u0026#39; ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?","keywords":[],"articleBody":"extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db ' MENU ' l1 db '=====================' l2 db '| INPUT GRADE |' l3 db '| EDIT GRADE |' l4 db '| SORT GRADE |' l5 db '| OUTPUT GRADE |' l6 db '| EXIT |' l7 db '=====================' ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ? ;行号（相对屏幕第一行） nn dw 1 ;行号（相对l0行） tab dw ?,l2,l3,l4,l5,l6 ;记录字符串的偏移地址 addr dw ? ;字符串偏移量 grade db 50 dup(5 dup(?), 10 dup(?), 3 dup (?)) count db 0 data ends stack segment para stack 'stack' ;堆栈段 db 256 dup(0) stack ends code segment assume cs:code,ss:stack,ds:data start: mov ax, data mov ds, ax mov es, ax last1: mov ax, 3 int 10h ;设置显示模式 mov yy, 8 ;让屏幕上方有8个空行 mov addr, offset l0 ;将偏移量变量设为l0，准备打印l0行的内容 last2: disp xx, ll, 0fh ;先以无颜色打印所有行 add addr, ll ; inc yy ; cmp yy, 16 ; jl last2 ; mov nn, 1 ;将当前行号设为1，准备将第一行上色 call compute ;计算需要刷新的字符串的偏移量 disp xx+4, ll-8, 51h ;上色刷新,+4表示前面4个字符不刷新,-8表示后面8个字符不刷新,51为颜色编号 scan: mov ah, 1 int 16h ;扫描是否键盘有输入 jz scan ;没有输入就继续扫描，有则判断并处理 mov ah, 0 int 16h ;获取键盘输入的ascii码 cmp ah, 80 ;80为下键 je down ;转到下键的处理代码 cmp ah, 72 ;72为上键 je up ;转到上键的处理代码 cmp al, 0dh ;0dh为回车 je enter jmp scan down: ;下键的处理代码 cmp nn, 5 ;行号为5则到底了，不处理 je scan call compute ;计算当前行需要刷新的字符串的偏移量 disp xx+4, ll-8, 0fh ;将当前的一行颜色复原 inc nn ;移动到下一行 call compute disp xx+4, ll-8, 51h ;将颜色改变表示预选中这一行 jmp scan ;返回继续扫描键盘接下来的操作 up: cmp nn, 1 je scan call compute disp xx+4, ll-8, 0fh dec nn ;和下键的处理代码一样，只是需要判断上界和向上移动 call compute disp xx+4, ll-8, 51h jmp scan enter: cmp nn, 1 ;成绩录入 jne next2 xor ax, ax mov al, count mov ah, 18 mul ah mov dx, offset grade add dx, ax ;mov bl, count inc count call input next2: cmp nn, 2 ;成绩修改 jne next3 call edit next3: cmp nn, 3 ;成绩排序 jne next4 call sort next4: cmp nn, 4 ;成绩输出 jne next5 mov dx, offset grade mov bl, count call output next5: cmp nn, 5 ;退出 je exit jmp last1 exit: mov dx, offset grade mov ah, 9 int 21h mov dl, 'z' mov ah, 02h int 21h mov al,byte ptr nn mov ah,4ch int 21h compute proc near ;计算需要刷新的字符串的偏移量 mov di,nn add di,di ;因为tab存的是dw类型所以要乘以2 mov ax,tab[di] ;找到当前行的字符串偏移量 add ax,4 ;因为前面有四个其他字符不用刷新上色，所以加4 mov addr,ax ;将计算出的偏移量存起来 mov al,byte ptr nn add al,9 mov yy,al ;相对l0的行数+9位相对屏幕的行数 ret compute endp code ends end start ","wordCount":"405","inLanguage":"zh","datePublished":"2022-05-26T18:18:10+08:00","dateModified":"2022-05-26T18:18:10+08:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jinjiang.life/posts/asm-01/"},"publisher":{"@type":"Organization","name":"锦酱的博客","logo":{"@type":"ImageObject","url":"https://jinjiang.life/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://jinjiang.life accesskey=h title="锦酱的博客 (Alt + H)">锦酱的博客</a>
+<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu><li><a href=https://jinjiang.life/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://jinjiang.life/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://jinjiang.life>主页</a>&nbsp;»&nbsp;<a href=https://jinjiang.life/posts/>Posts</a></div><h1 class=post-title>用汇编(MASM)写的小程序</h1><div class=post-meta><span title="2022-05-26 18:18:10 +0800 CST">五月 26, 2022</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Me</div></header><div class=post-content><pre tabindex=0><code class=language-x86asm data-lang=x86asm>extrn input:far, edit:far, sort:far, output:far
+
+disp macro x,length,color               ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色
+     mov ax,1301h
+     mov bx,color
+     mov cx,length
+     mov dh,yy
+     mov dl,x
+     mov bp,addr
+     int 10h                            ;10号BIOS调用
+     endm
+
+
+
+data segment
+    l0 db &#39;        MENU         &#39;
+    l1 db &#39;=====================&#39;
+    l2 db &#39;|   INPUT  GRADE    |&#39;
+    l3 db &#39;|   EDIT   GRADE    |&#39;
+    l4 db &#39;|   SORT   GRADE    |&#39;
+    l5 db &#39;|   OUTPUT GRADE    |&#39;
+    l6 db &#39;|   EXIT            |&#39;
+    l7 db &#39;=====================&#39;       ;l0-l6存要显示的菜单字符串
+    LL EQU $-l7                         ;一个菜单字符串的长度
+    XX equ (80-ll)/2                    ;xx输出是横向偏移量，让菜单显示在屏幕中间
+    yy db ?                             ;行号（相对屏幕第一行）
+    nn dw 1                             ;行号（相对l0行）
+    tab dw ?,l2,l3,l4,l5,l6             ;记录字符串的偏移地址
+    addr dw ?                           ;字符串偏移量
+    grade db 50 dup(5 dup(?), 10 dup(?), 3 dup (?))
+    count db 0
+data ends
+
+
+
+
+stack segment para stack &#39;stack&#39;        ;堆栈段
+    db 256 dup(0)
+stack ends
+
+code segment
+    assume cs:code,ss:stack,ds:data
+
+start:
+    mov ax, data
+    mov ds, ax
+    mov es, ax
+last1:
+    mov ax, 3
+    int 10h                             ;设置显示模式
+    mov yy, 8                           ;让屏幕上方有8个空行
+    mov addr, offset l0                 ;将偏移量变量设为l0，准备打印l0行的内容
+last2:
+    disp xx, ll, 0fh                    ;先以无颜色打印所有行
+    add addr, ll                        ;
+    inc yy                              ;
+    cmp yy, 16                          ;
+    jl last2                            ;
+    mov nn, 1                           ;将当前行号设为1，准备将第一行上色 
+    call compute                        ;计算需要刷新的字符串的偏移量
+    disp xx+4, ll-8, 51h                ;上色刷新,+4表示前面4个字符不刷新,-8表示后面8个字符不刷新,51为颜色编号
+
+
+
+scan:
+    mov ah, 1
+    int 16h                             ;扫描是否键盘有输入
+    jz scan                             ;没有输入就继续扫描，有则判断并处理
+    mov ah, 0                           
+    int 16h                             ;获取键盘输入的ascii码
+    cmp ah, 80                          ;80为下键
+    je down                             ;转到下键的处理代码
+    cmp ah, 72                          ;72为上键
+    je up                               ;转到上键的处理代码
+    cmp al, 0dh                         ;0dh为回车
+    je enter
+    jmp scan
+
+down:                                   ;下键的处理代码
+    cmp nn, 5                           ;行号为5则到底了，不处理
+    je scan
+    call compute                        ;计算当前行需要刷新的字符串的偏移量
+    disp xx+4, ll-8, 0fh                ;将当前的一行颜色复原
+    inc nn                              ;移动到下一行
+    call compute                        
+    disp xx+4, ll-8, 51h                ;将颜色改变表示预选中这一行
+    jmp scan                            ;返回继续扫描键盘接下来的操作
+
+up:
+    cmp nn, 1
+    je scan
+    call compute
+    disp xx+4, ll-8, 0fh
+    dec nn                              ;和下键的处理代码一样，只是需要判断上界和向上移动
+    call compute
+    disp xx+4, ll-8, 51h
+    jmp scan
+
+
+enter:
+    cmp nn, 1                           ;成绩录入
+    jne next2
+    xor ax, ax
+    mov al, count
+    mov ah, 18
+    mul ah
+    mov dx, offset grade
+    add dx, ax
+    ;mov bl, count
+    inc count
+    call input
+
+next2:
+    cmp nn, 2                           ;成绩修改
+    jne next3
+    call edit
+
+next3:
+    cmp nn, 3                           ;成绩排序
+    jne next4
+    call sort
+
+next4:
+    cmp nn, 4                           ;成绩输出
+    jne next5
+    mov dx, offset grade
+    mov bl, count
+    call output
+
+next5:
+    cmp nn, 5                           ;退出
+    je exit
+    jmp last1
+
+exit:
+    mov dx, offset grade
+    mov ah, 9
+    int 21h
+    mov dl, &#39;z&#39;
+    mov ah, 02h
+    int 21h
+    mov al,byte ptr nn
+    mov ah,4ch
+    int 21h
+
+
+
+
+compute proc near                       ;计算需要刷新的字符串的偏移量
+    mov di,nn                           
+    add di,di                           ;因为tab存的是dw类型所以要乘以2
+    mov ax,tab[di]                      ;找到当前行的字符串偏移量
+    add ax,4                            ;因为前面有四个其他字符不用刷新上色，所以加4
+    mov addr,ax                         ;将计算出的偏移量存起来
+    mov al,byte ptr nn                  
+    add al,9
+    mov yy,al                           ;相对l0的行数+9位相对屏幕的行数
+    ret
+compute endp
+
+
+code ends
+    end start
+</code></pre></div><footer class=post-footer><nav class=paginav><a class=next href=https://jinjiang.life/posts/java-springmvc/><span class=title>下一页 »</span><br><span>Java SpringMVC</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2022 <a href=https://jinjiang.life>锦酱的博客</a></span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="复制";function s(){e.innerText="已复制！",setTimeout(()=>{e.innerText="复制"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script></body></html>

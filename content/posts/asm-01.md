@@ -4,7 +4,7 @@ date: 2022-05-26T18:18:10+08:00
 draft: false
 ---
 
-```asm
+```x86asm
 extrn input:far, edit:far, sort:far, output:far
 
 disp macro x,length,color               ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色
