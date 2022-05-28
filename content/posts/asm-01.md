@@ -4,7 +4,7 @@ date: 2022-05-26T18:18:10+08:00
 draft: false
 ---
 
-```x86asm
+```
 extrn input:far, edit:far, sort:far, output:far
 
 disp macro x,length,color               ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色
@@ -170,4 +170,486 @@ code ends
     end start
 ```
 
+```
+public input
+data segment
+    input_info0 db 'input student id(length:5):', '$'
+    input_info1 db 0dh,0ah,'input student name(length:10):', '$'
+    input_info2 db 0dh,0ah,'input student grade(0-100):', '$'
+    
+    buffer0 db 6
+        db ?
+        db 6 dup (?)
+    buffer1 db 11
+        db ?
+        db 11 dup (?)
+    buffer2 db 4
+        db ?
+        db 4 dup (?)
+data ends
 
+code segment
+
+input proc far
+    assume cs:code,ds:data
+
+    push ds;保存寄存器
+    mov ax, data
+    mov ds, ax
+
+    mov ax, 3
+    int 10h
+
+    push dx                     ;输出提示信息
+    mov dx, offset input_info0
+    mov ah, 9
+    int 21h
+
+    mov dx, offset buffer0      ;输入学生id到buffer
+    mov ah, 0ah
+    int 21h
+    pop dx
+
+    lea si, buffer0             ;将buffer用字符串传送指令传送到主程序
+    add si, 2                   ;的grade
+    mov di, dx
+    mov cx, 5
+    rep movsb
+
+
+    push dx
+    mov dx, offset input_info1  ;输出提示信息
+    mov ah, 9
+    int 21h
+
+    mov dx, offset buffer1      ;输入学生姓名
+    mov ah, 0ah
+    int 21h
+    pop dx
+
+    lea si, buffer1             ;传送到主程序
+    add si, 2
+    mov di, dx
+    add di, 5
+    mov cx, 10
+    rep movsb
+
+
+
+    push dx
+    mov dx, offset input_info2  ;输出提示信息
+    mov ah, 9
+    int 21h
+
+    mov dx, offset buffer2      ;输入成绩
+    mov ah, 0ah
+    int 21h
+    pop dx
+
+    lea si, buffer2             ;传送
+    add si, 2
+    mov di, dx
+    add di, 15
+    mov cx, 3
+    rep movsb
+    
+    
+    
+    pop ds
+    ret
+    input endp
+    code ends
+    end
+```
+
+```
+public edit
+data segment
+    input_info0 db 'input student id(length:5):', '$'
+    input_info1 db 0dh,0ah,'input new grade(0-100):', '$'
+    tag db ?    
+    addr dw ?
+    buffer0 db 6
+        db ?
+        db 6 dup (?)
+    buffer1 db 4
+        db ?
+        db 4 dup (?)
+data ends
+
+code segment
+
+edit proc far
+    assume cs:code,ds:data
+
+    push ds;保存寄存器
+    mov ax, data
+    mov ds, ax
+    mov addr, dx
+    mov tag, 1
+
+    mov ax, 3
+    int 10h
+    
+    mov dx, offset input_info0      ;输出提示信息
+    mov ah, 9
+    int 21h
+    mov dx, offset buffer0
+    mov ah, 0ah
+    int 21h
+
+    call search                     ;
+
+    cmp tag, 1
+    jne exit1
+
+    push dx
+    mov dx, offset input_info1
+    mov ah, 9
+    int 21h
+    mov dx, offset buffer1
+    mov ah, 0ah
+    int 21h
+    pop dx
+
+    lea si, buffer1
+    add si, 2
+    mov di, dx
+    add di, 15
+    mov cx, 3
+    rep movsb
+    
+    
+exit1:
+    pop ds
+    ret
+    
+edit endp
+
+search proc near
+    xor cx, cx
+    mov cl, bl
+    mov di, addr
+    mov bx, di
+loop1:
+    push cx
+    mov si, offset buffer0
+    add si, 2
+    mov cx, 5
+    repz cmpsb
+    pop cx
+    jne next
+    jmp exit
+next:
+    add bx, 18
+    mov di, bx
+    loop loop1
+    mov tag, 0
+
+exit:
+    mov dx, bx
+    ;出口参数dx
+    ret
+
+
+search endp
+
+    code ends
+    end
+```
+
+```
+public sort
+
+code segment
+sort proc far
+    assume cs:code
+    push ax
+    push bx
+    push cx
+    push dx
+    push si
+    push di
+
+    
+    xor cx, cx
+    mov cl, bl
+
+
+
+    dec cx
+
+loop1:
+    mov di, cx
+    mov bp, sp
+    mov ax, [bp + 4]
+loop2:
+    mov bx, ax
+    add bx, 18
+    push ax
+    call comp
+    pop ax
+    cmp bl, 1
+    je continue
+    push di
+    mov si, ax
+    mov di, ax
+    add di, 18
+    call swap
+    pop di
+continue:
+    add ax, 18
+    loop loop2
+    mov cx, di
+    loop loop1
+
+    pop di
+    pop si
+    pop dx
+    pop cx
+    pop bx
+    pop ax
+    ret
+sort endp
+
+
+str2int proc near
+    ;入口参数dx
+    push ax
+    push bx
+    push si
+    add dx, 15
+    mov si, dx
+    mov al, [si]
+    cmp al, 0dh
+    je zero
+    sub al, 30h
+    mov bl, [si + 1]
+    cmp bl, 0dh
+    je next
+    mov ah, 10
+    mul ah
+    add al, bl
+    sub al, 30h
+    mov bl, [si + 2]
+
+    
+
+    cmp bl, 0dh
+    je next
+    mov al, 100
+next:
+    mov dl, al
+    jmp exit
+zero:
+    mov dl, 0
+    jmp exit
+    ;mov ah, dl
+
+    ;mov dl, ah
+    ;mov ah, 02h
+    ;int 21h
+
+    ;mov ax, 4c00h
+    ;int 21h
+
+exit:
+    pop si
+    pop bx
+    pop ax
+    ;出口参数dl
+
+    ret
+str2int endp
+
+comp proc near
+    ;入口参数ax, bx
+    mov dx, ax
+    call str2int
+    mov ah, dl
+    mov dx, bx
+    call str2int
+    mov al, dl
+    mov bl, 1
+    cmp ah, al
+    ja next1
+    mov bl, 0
+next1:
+    ;出口参数bl，大于等于为1，否则为0
+    ret
+
+comp endp
+
+swap proc near
+    ;入口参数si, di
+    push ax
+    push cx
+    mov cx, 18
+swap1:
+    
+    
+    push cx
+    ;mov si, bx
+    ;mov di, dx
+    mov al, [si]
+    xchg al, [di]
+    mov [si], al
+    pop cx
+    inc si
+    inc di
+    loop swap1
+    pop cx
+    pop ax
+    ret
+swap endp
+
+
+
+    code ends
+    end
+```
+
+```
+public output
+
+disp macro x,y,length,color               ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色
+     mov ax,1301h
+     mov bx,color
+     mov cx,length
+     mov dh,y
+     mov dl,x
+     mov bp,addr
+     int 10h                            ;10号BIOS调用
+     endm
+
+data segment
+    l0 db '    ID       NAME     GRADE '
+    l1 db '+--------------------------+'
+    l2 db '|       |            |     |'
+    ll equ $-l2
+    xx equ (80-ll)/2
+    yy db ?
+    addr dw ?
+    grades dw ?
+    count db ?
+    
+    nn db 0                             ;行号（相对l0行）
+data ends
+
+code segment
+output proc far
+    assume cs:code,ds:data
+
+    push ds;保存寄存器
+    push es
+    mov ax, data
+    mov ds, ax
+    mov es, ax
+    mov grades, dx
+    mov count, bl
+
+    mov ax, 3
+    int 10h
+    mov addr, offset l0
+    disp xx, 6 ,ll, 0fh
+    mov addr, offset l1
+    disp xx, 7 ,ll, 0fh 
+    mov addr, offset l2
+    mov cx, 10
+    mov yy, 8
+print_frame:
+    push cx
+    disp xx, yy ,ll, 0fh
+    pop cx
+    inc yy
+    loop print_frame 
+    mov addr, offset l1
+    disp xx, 18 ,ll, 0fh 
+    jmp print_grades
+scan1:
+    mov ah, 1
+    int 16h                             ;扫描是否键盘有输入
+    jz scan1 
+    mov ah, 0                           
+    int 16h
+    cmp ah, 80                          ;80为下键
+    je down                             ;转到下键的处理代码
+    cmp ah, 72                          ;72为上键
+    je up                               ;转到上键的处理代码
+    cmp al, 113
+    je exit
+    jmp scan1
+
+down:
+    mov al, nn
+    add al, 10
+    cmp al, count
+    jae scan1
+    inc nn
+    jmp print_grades
+up:
+    mov al, nn
+    cmp al, 0
+    jbe scan1
+    dec nn
+    jmp print_grades
+
+exit:
+    pop es
+    pop ds
+    ret
+
+print_grades:
+    xor cx, cx
+    mov cl, 10
+    mov al, count
+    sub al, nn
+    cmp cl, al
+    jb next1
+    mov cl, al
+next1:
+    cmp cx, 0
+    jbe scan1
+    pop es
+    mov yy, 8
+    mov ax, grades
+    mov addr, ax
+    xor ax, ax
+    mov al, nn
+    mov ah, 18
+    mul ah
+    add addr, ax
+print_cow:
+    push cx
+    push addr
+    push es
+    mov ax, ds
+    mov es, ax
+    mov addr, offset l2
+    disp xx, yy ,ll, 0fh
+    pop es
+    pop addr
+    disp xx+2, yy, 5, 0fh
+    add addr, 5
+    jmp gateway2
+gateway1:
+    jmp print_cow
+gateway2:    
+    disp xx+10, yy, 10, 0fh
+    add addr, 10
+    disp xx+23, yy, 3, 0fh
+    add addr, 3
+    inc yy
+    pop cx
+    dec cx
+    cmp cx, 0
+    ja gateway1
+    push es
+    jmp scan1
+
+
+    
+output endp
+    code ends
+    end
+```
