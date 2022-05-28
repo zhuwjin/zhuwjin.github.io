@@ -3,7 +3,75 @@ title: "用汇编(MASM)写的小程序"
 date: 2022-05-26T18:18:10+08:00 
 draft: false
 ---
+### DOSBOX的使用
+右键DOSBOX点击打开文件所在位置
 
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm1.png)
+
+找到文件夹里的`DOSBox 0.7.4-3 Options`，双击打开或右键点打开
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm2.png)
+
+然后就会出现记事本打开一个文本文件
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm3.png)
+
+找到你MASM放到哪个文件夹里的
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm4.png)
+
+复制这个地址，然后修改刚刚的文本文件
+在最下面添加两行
+```
+mount x 你的MASM路径
+set PATH=%PATH%;x:\;
+```
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm5.png)
+
+保存，然后打开DOSBOX看看效果
+就可以直接使用masm命令了
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm6.png)
+
+接下来把工作区弄好，打开你写汇编代码的地方，复制路径
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm7.png)
+
+
+然后再打开刚刚的`DOSBox 0.7.4-3 Options`
+
+添加这两行
+```
+mount c 你的工作路径
+c:
+```
+保存退出
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm8.png)
+
+然后打开`DOSBOX`，它就会自动转到你的工作目录里了
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm9.png)
+
+如果你使用了我的代码，在`DOSBOX`里运行`build.bat`，就可以将菜单程序编译了
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm10.png)
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm11.png)
+
+然后运行菜单程序，输入`MENU.EXE`，菜单就出来啦
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm12.png)
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm13.png)
+
+随便输一个数据显示出来
+
+![](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/masm14.png)
+
+[代码压缩包](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/asm%20%282%29.zip)
+
+### 代码
 ```
 extrn input:far, edit:far, sort:far, output:far
 
@@ -105,26 +173,32 @@ up:
 
 
 enter:
-    cmp nn, 1                           ;成绩录入
+    cmp nn, 1                           ;nn等于1，表示光标在第一行，则执行成绩录入功能
     jne next2
-    xor ax, ax
-    mov al, count
-    mov ah, 18
-    mul ah
-    mov dx, offset grade
-    add dx, ax
-    ;mov bl, count
-    inc count
-    call input
+    xor ax, ax                          ;清空ax里的内容
+                                        ;接下来求下一个要插入数据的地址
+                                        ;       ：grade的首地址 + 已经插入的个数(count) * 数据长度(18)
+    mov al, count                       ;将已经录入的成绩个数移入al
+    mov ah, 18                          ;将乘数移入ah准备作乘法
+    mul ah                              ;乘法指令，   ax <-- ah * al
+    mov dx, offset grade                ;将grade的首地址放入dx
+    add dx, ax                          ;加上ax中的内容
+    mov bl, count
+    inc count                           ;将个数 + 1，这行代码放在call上或下面不影响，因为input中不用count变量了，并且count只能成功
+    call input                          ;调用input，input的入口参数是dx
 
 next2:
     cmp nn, 2                           ;成绩修改
     jne next3
+    mov dx, offset grade
+    mov bl, count
     call edit
 
 next3:
     cmp nn, 3                           ;成绩排序
     jne next4
+    mov dx, offset grade
+    mov bl, count
     call sort
 
 next4:
@@ -140,14 +214,9 @@ next5:
     jmp last1
 
 exit:
-    mov dx, offset grade
-    mov ah, 9
-    int 21h
-    mov dl, 'z'
-    mov ah, 02h
-    int 21h
-    mov al,byte ptr nn
-    mov ah,4ch
+    mov ax, 3
+    int 10h
+    mov ax,4c00h
     int 21h
 
 
@@ -177,57 +246,59 @@ data segment
     input_info1 db 0dh,0ah,'input student name(length:10):', '$'
     input_info2 db 0dh,0ah,'input student grade(0-100):', '$'
     
-    buffer0 db 6
+    buffer0 db 6                                    ;输入缓冲区，用来学生id信息，长度6是因为后面需要留一个byte的空间
         db ?
         db 6 dup (?)
-    buffer1 db 11
+    buffer1 db 11                                   ;输入缓冲区，用来学生name信息
         db ?
         db 11 dup (?)
-    buffer2 db 4
+    buffer2 db 4                                    ;输入缓冲区，用来学生grade信息
         db ?
         db 4 dup (?)
 data ends
 
 code segment
 
-input proc far
+input proc far                                      ;入口参数dx：要插入的数据的内存单元的偏移地址
     assume cs:code,ds:data
 
-    push ds;保存寄存器
-    mov ax, data
+    push ds                                         ;保存寄存器中的内容，也就是主程序的数据段基址，子程序返回前需还原
+    mov ax, data                                    ;将子程序的数据段基址移入ds
     mov ds, ax
 
     mov ax, 3
-    int 10h
+    int 10h                                         ;清空界面
 
-    push dx                     ;输出提示信息
-    mov dx, offset input_info0
+    push dx                                         ;因为下面要用到dx，所以现将dx保存在栈中
+    mov dx, offset input_info0                      ;输出提示信息
     mov ah, 9
     int 21h
 
-    mov dx, offset buffer0      ;输入学生id到buffer
-    mov ah, 0ah
+    mov dx, offset buffer0                          ;输入学生id到buffer0
+    mov ah, 0ah                                     ;此调用在课本137页有详细说明
     int 21h
-    pop dx
+    pop dx                                          ;从栈中恢复dx
 
-    lea si, buffer0             ;将buffer用字符串传送指令传送到主程序
-    add si, 2                   ;的grade
-    mov di, dx
-    mov cx, 5
-    rep movsb
+    lea si, buffer0                                 ;将buffer用字符串传送指令传送到主程序的grade中
+    add si, 2                                       ;buffer0中前两个byte为记录详细，不需要传送
+    mov di, dx                                      ;将目的地址偏移量传送到di中
+    mov cx, 5                                       ;传送byte个数
+    rep movsb                                       ;es:di <-- ds:si; di++, si++；课本86-87页
+                                                    ;因为子程序初始化的时候没改es，所以es中的地址还是主程序数据段的地址
+                                                    ;这样从ds-->es就能将子程序中的数据传送到主程序
 
 
-    push dx
-    mov dx, offset input_info1  ;输出提示信息
+    push dx                                         ;因为下面要用到dx，所以现将dx保存在栈中
+    mov dx, offset input_info1                      ;输出提示信息
     mov ah, 9
     int 21h
 
-    mov dx, offset buffer1      ;输入学生姓名
+    mov dx, offset buffer1                          ;输入学生姓名
     mov ah, 0ah
     int 21h
-    pop dx
+    pop dx                                          ;从栈中恢复dx
 
-    lea si, buffer1             ;传送到主程序
+    lea si, buffer1                                 ;传送到主程序
     add si, 2
     mov di, dx
     add di, 5
@@ -237,16 +308,16 @@ input proc far
 
 
     push dx
-    mov dx, offset input_info2  ;输出提示信息
+    mov dx, offset input_info2                      ;输出提示信息
     mov ah, 9
     int 21h
 
-    mov dx, offset buffer2      ;输入成绩
+    mov dx, offset buffer2                          ;输入成绩
     mov ah, 0ah
     int 21h
     pop dx
 
-    lea si, buffer2             ;传送
+    lea si, buffer2                                 ;传送
     add si, 2
     mov di, dx
     add di, 15
@@ -255,9 +326,11 @@ input proc far
     
     
     
-    pop ds
+    pop ds                                          ;恢复原来的ds
     ret
-    input endp
+input endp
+
+
     code ends
     end
 ```
@@ -279,40 +352,39 @@ data ends
 
 code segment
 
-edit proc far
+edit proc far                       ;入口参数dx：grade的起始地址
     assume cs:code,ds:data
-
-    push ds;保存寄存器
+    push ds                         ;保存寄存器
     mov ax, data
     mov ds, ax
-    mov addr, dx
-    mov tag, 1
+    mov addr, dx                    ;将起始地址保存在addr中
+    mov tag, 1                      ;初始化tag为 1
 
-    mov ax, 3
-    int 10h
+    mov ax, 3                       
+    int 10h                         ;清屏
     
     mov dx, offset input_info0      ;输出提示信息
     mov ah, 9
     int 21h
-    mov dx, offset buffer0
-    mov ah, 0ah
+    mov dx, offset buffer0          ;输入学号
+    mov ah, 0ah                     
     int 21h
 
-    call search                     ;
+    call search                     ;调用search，搜索输入的学号的位置，入口参数为addr，出口参数为dx，和tag
+                                    
+    cmp tag, 1                      ;判断search的查找结果，1表示找到了，且dx中存放这个学号的起始地址
+    jne exit1                       ;没找到，直接退出
 
-    cmp tag, 1
-    jne exit1
-
-    push dx
-    mov dx, offset input_info1
+    push dx                         ;保存dx，因为接下来要修改
+    mov dx, offset input_info1      ;输出提示信息
     mov ah, 9
     int 21h
-    mov dx, offset buffer1
+    mov dx, offset buffer1          ;输入成绩
     mov ah, 0ah
     int 21h
-    pop dx
+    pop dx                          ;恢复dx
 
-    lea si, buffer1
+    lea si, buffer1                 ;字符串的传送操作，和input中的一样，把新成绩传送到主程序中
     add si, 2
     mov di, dx
     add di, 15
@@ -326,24 +398,29 @@ exit1:
     
 edit endp
 
-search proc near
-    xor cx, cx
-    mov cl, bl
-    mov di, addr
-    mov bx, di
+search proc near                    ;入口参数addr，buffer0
+    xor cx, cx                      ;清空cx
+    mov cl, bl                      ;将成绩个数移动到cl中，来控制循环次数
+    cmp cx, 0                       ;个数为0，直接查找失败
+    je fail
+    mov di, addr                    ;将grade首地址移动到mov中
+    mov bx, di                      ;保存一下di中的内容
 loop1:
-    push cx
-    mov si, offset buffer0
-    add si, 2
-    mov cx, 5
-    repz cmpsb
-    pop cx
-    jne next
-    jmp exit
+    push cx                         ;保存一下cx
+    mov si, offset buffer0          ;si存源操作数偏移地址
+    add si, 2                       ;前面2个记录信息，不需要比较
+    mov cx, 5                       ;比较的长度
+    repz cmpsb                      ;比较 ds:si ---- es:di
+                                    ;这里ds是子程序的数据段的段基址，es因为没改，所以是主程序的数据段的段基址，所以可以实现
+                                    ;从子程序向主程序传送数据
+    pop cx                          ;恢复cx
+    jne next                        ;如果两个字符串不相等，比较下一个人的成绩
+    jmp exit                        ;如果相等，查找结束，bx中就是这个成绩记录的首地址
 next:
-    add bx, 18
-    mov di, bx
+    add bx, 18                      ;下一个成绩的首地址为当前的 + 18
+    mov di, bx                      ;把地址也写到di中，开始下一轮循环
     loop loop1
+fail:                               ;如果循环结束了都没找到，这查找失败
     mov tag, 0
 
 exit:
@@ -364,51 +441,34 @@ public sort
 code segment
 sort proc far
     assume cs:code
-    push ax
-    push bx
-    push cx
     push dx
-    push si
-    push di
-
-    
     xor cx, cx
     mov cl, bl
-
-
-
+    cmp cx, 0
+    je exit1
     dec cx
-
+    cmp cx, 0
+    je exit1
 loop1:
     mov di, cx
     mov bp, sp
-    mov ax, [bp + 4]
+    mov ax, [bp]
 loop2:
     mov bx, ax
-    add bx, 18
-    push ax
     call comp
-    pop ax
     cmp bl, 1
     je continue
-    push di
+
     mov si, ax
-    mov di, ax
-    add di, 18
     call swap
-    pop di
 continue:
     add ax, 18
     loop loop2
     mov cx, di
     loop loop1
 
-    pop di
-    pop si
+exit1:
     pop dx
-    pop cx
-    pop bx
-    pop ax
     ret
 sort endp
 
@@ -433,8 +493,6 @@ str2int proc near
     sub al, 30h
     mov bl, [si + 2]
 
-    
-
     cmp bl, 0dh
     je next
     mov al, 100
@@ -444,14 +502,6 @@ next:
 zero:
     mov dl, 0
     jmp exit
-    ;mov ah, dl
-
-    ;mov dl, ah
-    ;mov ah, 02h
-    ;int 21h
-
-    ;mov ax, 4c00h
-    ;int 21h
 
 exit:
     pop si
@@ -463,11 +513,13 @@ exit:
 str2int endp
 
 comp proc near
-    ;入口参数ax, bx
-    mov dx, ax
+    ;入口参数bx
+    push ax
+    mov dx, bx
     call str2int
     mov ah, dl
     mov dx, bx
+    add dx, 18
     call str2int
     mov al, dl
     mov bl, 1
@@ -475,36 +527,29 @@ comp proc near
     ja next1
     mov bl, 0
 next1:
+    pop ax
     ;出口参数bl，大于等于为1，否则为0
     ret
 
 comp endp
 
 swap proc near
-    ;入口参数si, di
+    ;入口参数si
     push ax
     push cx
     mov cx, 18
 swap1:
-    
-    
     push cx
-    ;mov si, bx
-    ;mov di, dx
     mov al, [si]
-    xchg al, [di]
+    xchg al, [si + 18]
     mov [si], al
     pop cx
     inc si
-    inc di
     loop swap1
     pop cx
     pop ax
     ret
 swap endp
-
-
-
     code ends
     end
 ```

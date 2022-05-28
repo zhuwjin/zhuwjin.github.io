@@ -16,7 +16,22 @@
       <pubDate>Thu, 26 May 2022 18:18:10 +0800</pubDate>
       
       <guid>https://jinjiang.life/posts/asm-01/</guid>
-      <description>extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db &amp;#39; MENU &amp;#39; l1 db &amp;#39;=====================&amp;#39; l2 db &amp;#39;| INPUT GRADE |&amp;#39; l3 db &amp;#39;| EDIT GRADE |&amp;#39; l4 db &amp;#39;| SORT GRADE |&amp;#39; l5 db &amp;#39;| OUTPUT GRADE |&amp;#39; l6 db &amp;#39;| EXIT |&amp;#39; l7 db &amp;#39;=====================&amp;#39; ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?</description>
+      <description>DOSBOX的使用 右键DOSBOX点击打开文件所在位置
+找到文件夹里的DOSBox 0.7.4-3 Options，双击打开或右键点打开
+然后就会出现记事本打开一个文本文件
+找到你MASM放到哪个文件夹里的
+复制这个地址，然后修改刚刚的文本文件 在最下面添加两行
+mount x 你的MASM路径 set PATH=%PATH%;x:\; 保存，然后打开DOSBOX看看效果 就可以直接使用masm命令了
+接下来把工作区弄好，打开你写汇编代码的地方，复制路径
+然后再打开刚刚的DOSBox 0.7.4-3 Options
+添加这两行
+mount c 你的工作路径 c: 保存退出
+然后打开DOSBOX，它就会自动转到你的工作目录里了
+如果你使用了我的代码，在DOSBOX里运行build.bat，就可以将菜单程序编译了
+然后运行菜单程序，输入MENU.EXE，菜单就出来啦
+随便输一个数据显示出来
+代码压缩包
+代码 extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db &amp;#39; MENU &amp;#39; l1 db &amp;#39;=====================&amp;#39; l2 db &amp;#39;| INPUT GRADE |&amp;#39; l3 db &amp;#39;| EDIT GRADE |&amp;#39; l4 db &amp;#39;| SORT GRADE |&amp;#39; l5 db &amp;#39;| OUTPUT GRADE |&amp;#39; l6 db &amp;#39;| EXIT |&amp;#39; l7 db &amp;#39;=====================&amp;#39; ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?</description>
     </item>
     
     <item>
