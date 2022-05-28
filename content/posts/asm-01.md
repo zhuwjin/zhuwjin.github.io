@@ -72,7 +72,7 @@ c:
 [代码压缩包](https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/asm%20%282%29.zip)
 
 ### 代码
-```
+```nasm
 extrn input:far, edit:far, sort:far, output:far
 
 disp macro x,length,color               ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色

@@ -31,7 +31,7 @@ mount c 你的工作路径 c: 保存退出
 然后运行菜单程序，输入MENU.EXE，菜单就出来啦
 随便输一个数据显示出来
 代码压缩包
-代码 extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db &amp;#39; MENU &amp;#39; l1 db &amp;#39;=====================&amp;#39; l2 db &amp;#39;| INPUT GRADE |&amp;#39; l3 db &amp;#39;| EDIT GRADE |&amp;#39; l4 db &amp;#39;| SORT GRADE |&amp;#39; l5 db &amp;#39;| OUTPUT GRADE |&amp;#39; l6 db &amp;#39;| EXIT |&amp;#39; l7 db &amp;#39;=====================&amp;#39; ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?</description>
+代码 extrn input:far, edit:far, sort:far, output:far  disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色  mov ax,1301h  mov bx,color  mov cx,length  mov dh,yy  mov dl,x  mov bp,addr  int 10h ;10号BIOS调用  endm    data segment  l0 db &amp;#39; MENU &amp;#39;  l1 db &amp;#39;=====================&amp;#39;  l2 db &amp;#39;| INPUT GRADE |&amp;#39;  l3 db &amp;#39;| EDIT GRADE |&amp;#39;  l4 db &amp;#39;| SORT GRADE |&amp;#39;  l5 db &amp;#39;| OUTPUT GRADE |&amp;#39;  l6 db &amp;#39;| EXIT |&amp;#39;  l7 db &amp;#39;=====================&amp;#39; ;l0-l6存要显示的菜单字符串  LLEQU $-l7 ;一个菜单字符串的长度  XXequ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间  yy db ?</description>
     </item>
     
     <item>
