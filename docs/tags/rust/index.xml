@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rust on 锦酱的博客</title>
+    <link>https://jinjiang.life/tags/rust/</link>
+    <description>Recent content in Rust on 锦酱的博客</description>
+    <image>
+      <url>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Apr 2021 13:58:22 +0800</lastBuildDate><atom:link href="https://jinjiang.life/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust初试</title>
+      <link>https://jinjiang.life/posts/rust-00/</link>
+      <pubDate>Wed, 21 Apr 2021 13:58:22 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-00/</guid>
+      <description>Rust 据官网说介绍rust是一门高性能，高可靠的编程语言，最主要的特点就是安全可靠，据悉Linux内核都在考虑是否用rust代替C
+Rust安装 可以使用官方的rustup来安装rust以及其他工具
+sudo pacman -S rustup 设置rustup的下载源
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup 安装rust
+rustup install stable rustup component add rust-src Helloworld
+Code % cargo new hello-world  Created binary (application) `hello-world` package Code % cd hello-world hello-world[master*] % ls Cargo.toml src hello-world[master*] % cargo run  Compiling hello-world v0.1.0 (/home/murphy/Code/hello-world)  Finished dev [unoptimized + debuginfo] target(s) in 1.15s  Running `target/debug/hello-world` Hello, world! Rust IDE rust还没有官方的IDE，我使用Clion的rust插件来写</description>
+    </item>
+    
+  </channel>
+</rss>
