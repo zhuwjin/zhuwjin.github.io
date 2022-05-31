@@ -58,8 +58,8 @@ params:
     profileMode:
         enabled: true # needs to be explicitly set
         title: 锦酱
-        subtitle: "你追番的更新啦!"
-        imageUrl: "https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/mutx.png"
+        subtitle: "你追的番更新啦!"
+        imageUrl: "https://jinjiang-blog.oss-cn-hangzhou.aliyuncs.com/mutx3.jpg"
         imageWidth: 120
         imageHeight: 120
         imageTitle: 锦酱
