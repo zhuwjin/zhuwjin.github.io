@@ -20,6 +20,23 @@
     </item>
     
     <item>
+      <title>在Windows上使用C语言</title>
+      <link>https://jinjiang.life/posts/c-00/</link>
+      <pubDate>Wed, 01 Jun 2022 22:07:14 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/c-00/</guid>
+      <description>〇、引言 在Linux下使用C语言非常的简单，只需要安装GCC或者Clang编译器就可以了
+而在Windows下使用C语言，可以有多种方案，这篇文章里将介绍2种方法，分别是mingw64，和msvc。
+mingw64呢，是可以在windows下运行一些linux下的应用，如GCC等。而且编译出来的程序也可以在Windwos下运行。
+msvc就是windows下原生的编译器了，但是安装msvc需要安装vs，需要大量的磁盘空间。而mingw64需要的空间是比较小的。
+一、在Windows下安装mingw64以使用GCC 1.1、下载msys2 msys2官网
+1.2、安装msys2 选择好你的安装路径，一路下一步就行了
+1.3、配置msys2的源 在北外的镜像站里有配置说明
+1.4、安装GCC和其他库文件 pacman -S --needed base-devel mingw-w64-x86_64-toolchain 然后一路回车，等待下载安装完成
+1.5、修改环境变量 1.6、检测是否安装完成 打开powershell，输入gcc -v看看是否有输出。</description>
+    </item>
+    
+    <item>
       <title>用汇编(MASM)写的小程序</title>
       <link>https://jinjiang.life/posts/asm-01/</link>
       <pubDate>Thu, 26 May 2022 18:18:10 +0800</pubDate>
