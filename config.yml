@@ -67,7 +67,7 @@ params:
             - name: Posts
               url: posts
             - name: github
-              url: https://github.com/jinjiang5
+              url: https://github.com/zhuwjin
 
     # home-info mode
     homeInfoParams:
