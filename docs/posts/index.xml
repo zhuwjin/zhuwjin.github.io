@@ -10,50 +10,7 @@
       <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 01 Jun 2022 22:07:14 +0800</lastBuildDate><atom:link href="https://jinjiang.life/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>在Windows上使用C语言</title>
-      <link>https://jinjiang.life/posts/c-00/</link>
-      <pubDate>Wed, 01 Jun 2022 22:07:14 +0800</pubDate>
-      
-      <guid>https://jinjiang.life/posts/c-00/</guid>
-      <description>〇、引言 在Linux下使用C语言非常的简单，只需要安装GCC或者Clang编译器就可以了
-而在Windows下使用C语言，可以有多种方案，这篇文章里将介绍2种方法，分别是mingw64，和msvc。
-mingw64呢，是可以在windows下运行一些linux下的应用，如GCC等。而且编译出来的程序也可以在Windwos下运行。
-msvc就是windows下原生的编译器了，但是安装msvc需要安装vs，需要大量的磁盘空间。而mingw64需要的空间是比较小的。
-一、在Windows下安装mingw64以使用GCC 1.1、下载msys2 msys2官网
-1.2、安装msys2 选择好你的安装路径，一路下一步就行了
-1.3、配置msys2的源 在北外的镜像站里有配置说明
-1.4、安装GCC和其他库文件 pacman -S --needed base-devel mingw-w64-x86_64-toolchain 然后一路回车，等待下载安装完成
-1.5、修改环境变量 找到msys2的安装目录里的这两个目录。
-在搜索里搜索环境变量可以快速打开编辑环境变量的窗口。
-选择用户的环境变量，然后选中Path，然后点编辑
-将两个目录添加到环境变量里。
-1.6、检测是否安装完成 打开powershell，输入gcc -v看看是否有输出。
-1.7、在VSCode里编写代码 1.7.0、VSCode的安装 在官网下载安装就行，一路下一步。
-1.7.1、安装插件 如果你需要中文界面，可以在插件商店搜索Chinese，下载最多的那个，安装它
-然后安装C/C++插件
-1.7.2、用C编写一个程序 按照国际惯例，写一个Hello World!试试。
-建议在一个空的文件夹里写，比如我的在C:\User\Jin\Documents\Code\C\Hello里。
-这里的C就是用C写的代码，Hello是一个项目。
-#include &amp;lt;stdio.h&amp;gt; int mian() { printf(&amp;#34;Hello world!\n&amp;#34;); return 0; } 然后点击右边的那个三角形编译运行代码。
-在弹出的窗口里选择gcc(其他你也没得选)。
-然后在终端里就能看见输出的Hello world!了。
-接下来试试调试程序，在代码的左边点一下，会出现一个红色的小点，叫断点，程序执行到这会中断。
-在点一下右边的三角形，运行程序。然后就可以很方便的看到变量当前的值了。
-1.7.3、用C++编写一个程序 和C一样，在一个空白的文件里创建一个项目。然后写一个程序。
-然后点击三角形运行。
-在弹出的窗口里选g++。
-然后想要的结果就出来了
-1.8、在CLion里编写代码 CLion和PyCharm、IDEA一样，都是jetbrains公司出品的软件，CLion使用起来比较方便，就是内存占用比较大，而且需要许可证，不过可以使用学生账户，我目前就是使用的学生许可证的CLion。
-CLion在官网就可以下载，如果还使用他们公司的其他产品，可以下载一个jetbrains ToolBox，来管理他们家的app
-1.8.1、下载安装CLion 打开安装包，然后一路下一步，如果需要桌面图标可以把下面的选项勾选了。
-1.8.2、运行CLion并配置许可证 打开CLion，然后一路下一步。
-可以申请学生账户，也可以注册个帐号来试用30天。
-如果需要中文界面，可以安装这个插件。安装完会提示重新打开CLion。
-重新打开后就是中文界面了。</description>
-    </item>
-    
+    <lastBuildDate>Thu, 26 May 2022 18:18:10 +0800</lastBuildDate><atom:link href="https://jinjiang.life/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>用汇编(MASM)写的小程序</title>
       <link>https://jinjiang.life/posts/asm-01/</link>
