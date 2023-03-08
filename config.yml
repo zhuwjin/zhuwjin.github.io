@@ -74,13 +74,13 @@ params:
         Title: "Hi there \U0001F44B"
         Content: Welcome to my blog
 
-    socialIcons:
-        - name: bilibili
-          url: "https://www.bilibili.com/"
-        - name: stackoverflow
-          url: "https://stackoverflow.com"
-        - name: github
-          url: "https://github.com/jinjiang5"
+    #socialIcons:
+        #- name: bilibili
+          #url: "https://www.bilibili.com/"
+        #- name: stackoverflow
+          #url: "https://stackoverflow.com"
+        #- name: github
+          #url: "https://github.com/jinjiang5"
 
     analytics:
         google:
