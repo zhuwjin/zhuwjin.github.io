@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>锦酱的博客</title>
+    <link>https://jinjiang.life/</link>
+    <description>Recent content on 锦酱的博客</description>
+    <image>
+      <title>锦酱的博客</title>
+      <url>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 01 Jun 2022 22:07:14 +0800</lastBuildDate><atom:link href="https://jinjiang.life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Windows上使用C语言</title>
+      <link>https://jinjiang.life/posts/c-00/</link>
+      <pubDate>Wed, 01 Jun 2022 22:07:14 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/c-00/</guid>
+      <description>〇、引言 在Linux下使用C语言非常的简单，只需要安装GCC或者Clang编译器就可以了
+而在Windows下使用C语言，可以有多种方案，这篇文章里将介绍2种方法，分别是mingw64，和msvc。
+mingw64呢，是可以在windows下运行一些linux下的应用，如GCC等。而且编译出来的程序也可以在Windwos下运行。
+msvc就是windows下原生的编译器了，但是安装msvc需要安装vs，需要大量的磁盘空间。而mingw64需要的空间是比较小的。
+一、在Windows下安装mingw64以使用GCC 1.1、下载msys2 msys2官网
+1.2、安装msys2 选择好你的安装路径，一路下一步就行了
+1.3、配置msys2的源 在北外的镜像站里有配置说明
+1.4、安装GCC和其他库文件 pacman -S --needed base-devel mingw-w64-x86_64-toolchain 然后一路回车，等待下载安装完成
+1.5、修改环境变量 找到msys2的安装目录里的这两个目录。
+在搜索里搜索环境变量可以快速打开编辑环境变量的窗口。
+选择用户的环境变量，然后选中Path，然后点编辑
+将两个目录添加到环境变量里。
+1.6、检测是否安装完成 打开powershell，输入gcc -v看看是否有输出。
+1.7、在VSCode里编写代码 1.7.0、VSCode的安装 在官网下载安装就行，一路下一步。
+1.7.1、安装插件 如果你需要中文界面，可以在插件商店搜索Chinese，下载最多的那个，安装它
+然后安装C/C++插件
+1.7.2、用C编写一个程序 按照国际惯例，写一个Hello World!试试。
+建议在一个空的文件夹里写，比如我的在C:\User\Jin\Documents\Code\C\Hello里。
+这里的C就是用C写的代码，Hello是一个项目。
+#include &amp;lt;stdio.h&amp;gt; int mian() { printf(&amp;#34;Hello world!\n&amp;#34;); return 0; } 然后点击右边的那个三角形编译运行代码。
+在弹出的窗口里选择gcc(其他你也没得选)。
+然后在终端里就能看见输出的Hello world!了。
+接下来试试调试程序，在代码的左边点一下，会出现一个红色的小点，叫断点，程序执行到这会中断。
+在点一下右边的三角形，运行程序。然后就可以很方便的看到变量当前的值了。
+1.7.3、用C++编写一个程序 和C一样，在一个空白的文件里创建一个项目。然后写一个程序。
+然后点击三角形运行。
+在弹出的窗口里选g++。
+然后想要的结果就出来了
+1.8、在CLion里编写代码 CLion和PyCharm、IDEA一样，都是jetbrains公司出品的软件，CLion使用起来比较方便，就是内存占用比较大，而且需要许可证，不过可以使用学生账户，我目前就是使用的学生许可证的CLion。
+CLion在官网就可以下载，如果还使用他们公司的其他产品，可以下载一个jetbrains ToolBox，来管理他们家的app
+1.8.1、下载安装CLion 打开安装包，然后一路下一步，如果需要桌面图标可以把下面的选项勾选了。
+1.8.2、运行CLion并配置许可证 打开CLion，然后一路下一步。
+可以申请学生账户，也可以注册个帐号来试用30天。
+如果需要中文界面，可以安装这个插件。安装完会提示重新打开CLion。
+重新打开后就是中文界面了。</description>
+    </item>
+    
+    <item>
+      <title>用汇编(MASM)写的小程序</title>
+      <link>https://jinjiang.life/posts/asm-01/</link>
+      <pubDate>Thu, 26 May 2022 18:18:10 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/asm-01/</guid>
+      <description>DOSBOX的使用 右键DOSBOX点击打开文件所在位置
+找到文件夹里的DOSBox 0.7.4-3 Options，双击打开或右键点打开
+然后就会出现记事本打开一个文本文件
+找到你MASM放到哪个文件夹里的
+复制这个地址，然后修改刚刚的文本文件 在最下面添加两行
+mount x 你的MASM路径 set PATH=%PATH%;x:\; 保存，然后打开DOSBOX看看效果 就可以直接使用masm命令了
+接下来把工作区弄好，打开你写汇编代码的地方，复制路径
+然后再打开刚刚的DOSBox 0.7.4-3 Options
+添加这两行
+mount c 你的工作路径 c: 保存退出
+然后打开DOSBOX，它就会自动转到你的工作目录里了
+如果你使用了我的代码，在DOSBOX里运行build.bat，就可以将菜单程序编译了
+然后运行菜单程序，输入MENU.EXE，菜单就出来啦
+随便输一个数据显示出来
+代码压缩包
+代码 extrn input:far, edit:far, sort:far, output:far disp macro x,length,color ;用来显示的宏，x为横坐标偏移量，length为字符串长度，color为颜色 mov ax,1301h mov bx,color mov cx,length mov dh,yy mov dl,x mov bp,addr int 10h ;10号BIOS调用 endm data segment l0 db &amp;#39; MENU &amp;#39; l1 db &amp;#39;=====================&amp;#39; l2 db &amp;#39;| INPUT GRADE |&amp;#39; l3 db &amp;#39;| EDIT GRADE |&amp;#39; l4 db &amp;#39;| SORT GRADE |&amp;#39; l5 db &amp;#39;| OUTPUT GRADE |&amp;#39; l6 db &amp;#39;| EXIT |&amp;#39; l7 db &amp;#39;=====================&amp;#39; ;l0-l6存要显示的菜单字符串 LL EQU $-l7 ;一个菜单字符串的长度 XX equ (80-ll)/2 ;xx输出是横向偏移量，让菜单显示在屏幕中间 yy db ?</description>
+    </item>
+    
+    <item>
+      <title>Java SpringMVC</title>
+      <link>https://jinjiang.life/posts/java-springmvc/</link>
+      <pubDate>Wed, 16 Feb 2022 21:12:45 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/java-springmvc/</guid>
+      <description>〇、SpringMVC 一、Hello SpringMVC 1.0、创建项目 创建一个maven项目，并在pom.xml中进行配置
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;life.jinjiang&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;LearnSpringMVC&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;!--定义打包方式为war包--&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;17&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;17&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;!--使用spring版本为5.3.15--&amp;gt; &amp;lt;spring.version&amp;gt;5.3.15&amp;lt;/spring.version&amp;gt; &amp;lt;thymeleaf.version&amp;gt;3.0.14.RELEASE&amp;lt;/thymeleaf.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-webmvc&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-spring5&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${thymeleaf.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;!--使用war的打包插件--&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-war-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.3.2&amp;lt;/version&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt; &amp;lt;/project&amp;gt; 1.1、配置web.xml 在main目录下创建一个webapp/WEB-INF目录，并在其中创建web.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xmlns=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee&amp;#34; xsi:schemaLocation=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_0.xsd&amp;#34; version=&amp;#34;3.0&amp;#34;&amp;gt; &amp;lt;!--配置servlet--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;SpringMVC&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;classpath:springMVC.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;!--配置启动时创建类--&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>Spring Aop</title>
+      <link>https://jinjiang.life/posts/spring-aop/</link>
+      <pubDate>Thu, 10 Feb 2022 14:01:50 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/spring-aop/</guid>
+      <description>〇、AOP 面向切面编程。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。不修改原代码添加新功能。
+一、AOP底层原理 AOP底层使用动态代理。
+1、JDK动态代理 public interface Student { void say_hello(); int add(int a, int b); } public class StudentImpl implements Student{ @Override public void say_hello() { System.out.println(&amp;#34;Hello&amp;#34;); } @Override public int add(int a, int b) { return a + b; } } public class MainApplication { public static void main(String[] args) { Student student = new StudentImpl(); Class[] interfaces = {Student.class}; Student student1 = (Student) Proxy.newProxyInstance(MainApplication.class.getClassLoader(), interfaces, new MyStudentProxy(student)); student1.</description>
+    </item>
+    
+    <item>
+      <title>Spring Bean</title>
+      <link>https://jinjiang.life/posts/spring-bean/</link>
+      <pubDate>Tue, 08 Feb 2022 14:45:56 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/spring-bean/</guid>
+      <description>〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
+xml解析、工厂模式、反射。
+一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, age=&amp;#34; + age + &amp;#39;}&amp;#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&amp;#34;Bean.</description>
+    </item>
+    
+    <item>
+      <title>Java 注解</title>
+      <link>https://jinjiang.life/posts/java-02/</link>
+      <pubDate>Sat, 05 Feb 2022 16:57:54 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/java-02/</guid>
+      <description>JAVA内置注解 1、@Override注解 @Override注解在重写父类方法时使用。
+@Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, id=&amp;#34; + id + &amp;#39;}&amp;#39;; } @Deprecated注解表示已弃用
+@Deprecated public void eat() { System.out.println(&amp;#34;eating...&amp;#34;); } @SuppressWarnings(&amp;quot;all&amp;quot;)表示忽略所有警告
+@SuppressWarnings(&amp;#34;all&amp;#34;) public void eat() { System.out.println(&amp;#34;eating...&amp;#34;); } 自定义注解和使用自定义注解 public @interface MyAnno {} @MyAnno public void eat() { System.out.println(&amp;#34;eating...&amp;#34;); } 自定义注解的属性 注解的属性类型限制：基本数据类型、String、枚举、注解、和前面类型的数组。
+enum Person { P1, P2 } public @interface MyAnno { String name(); int age(); Person per(); MyAnno2 an(); String[] str(); } @MyAnno(name=&amp;#34;jin&amp;#34;, age = 18, per = Person.</description>
+    </item>
+    
+    <item>
+      <title>Java 反射</title>
+      <link>https://jinjiang.life/posts/java-01/</link>
+      <pubDate>Sat, 05 Feb 2022 14:13:46 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/java-01/</guid>
+      <description>准备 定义一个User类
+public class User { private String name; private int id; public User(String name, int id) { this.name = name; this.id = id; } public User() { } public String getName() { return name; } public void setName(String name) { this.name = name; } public int getId() { return id; } public void setId(int id) { this.id = id; } @Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, id=&amp;#34; + id + &amp;#39;}&amp;#39;; } } Class类 获取Class类的三种方法 1、使用Class.</description>
+    </item>
+    
+    <item>
+      <title>Rust并发</title>
+      <link>https://jinjiang.life/posts/rust-11/</link>
+      <pubDate>Sun, 06 Jun 2021 17:28:35 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-11/</guid>
+      <description>线程 使用spawn创建新线程
+use std::thread; use std::time::Duration; fn main() { thread::spawn(|| { for i in 1..10 { println!(&amp;#34;hi number {} from the spawned thread!&amp;#34;, i); thread::sleep(Duration::from_millis(1)); } }); for i in 1..5 { println!(&amp;#34;hi number {} from the main thread!&amp;#34;, i); thread::sleep(Duration::from_millis(1)); } } 程序会输出
+hi number 1 from the main thread! hi number 1 from the spawned thread! hi number 2 from the main thread! hi number 2 from the spawned thread!</description>
+    </item>
+    
+    <item>
+      <title>Rust智能指针</title>
+      <link>https://jinjiang.life/posts/rust-10/</link>
+      <pubDate>Sat, 05 Jun 2021 18:51:39 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-10/</guid>
+      <description>使用Box&amp;lt;T&amp;gt;指向堆上的数据 使用box在堆上储存一个i32
+b是一个指向被分配在堆上的值5的Box
+fn main() { let b = Box::new(5); println!(&amp;#34;b = {}&amp;#34;, b); } 用Box&amp;lt;T&amp;gt;可以实现类似链表的结构
+#[derive(Debug)] enum List { Cons(i32, Box&amp;lt;List&amp;gt;), Nil, } use crate::List::{Cons, Nil}; fn main() { let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); println!(&amp;#34;{:?}&amp;#34;, list) } 通过Deref trait将智能指针当作常规引用处理 通过解引用运算符追踪指针的值 常规引用是一个指针类型，一种理解指针的方式是将其看成指向储存在其他某处值的箭头。
+fn main() { let x = 5; let y = &amp;amp;x; assert_eq!(5, x); assert_eq!(5, *y); } 如果使用下面的代码则会出错
+fn main() { let x = 5; let y = &amp;amp;x; assert_eq!</description>
+    </item>
+    
+    <item>
+      <title>Rust迭代器与闭包</title>
+      <link>https://jinjiang.life/posts/rust-09/</link>
+      <pubDate>Sat, 05 Jun 2021 18:51:13 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-09/</guid>
+      <description>闭包：可以捕获环境的匿名函数 Rust 的 闭包（closures）是可以保存进变量或作为参数传递给其他函数的匿名函数。可以在一个地方创建闭包，然后在不同的上下文中执行闭包运算。不同于函数，闭包允许捕获调用者作用域中的值。我们将展示闭包的这些功能如何复用代码和自定义行为。
+使用闭包创建行为的抽象 use std::thread; use std::time::Duration; fn simulated_expensive_calculation(intensity: u32) -&amp;gt; u32 { println!(&amp;#34;calculating slowly...&amp;#34;); thread::sleep(Duration::from_secs(2)); intensity } </description>
+    </item>
+    
+    <item>
+      <title>Rust测试</title>
+      <link>https://jinjiang.life/posts/rust-08/</link>
+      <pubDate>Thu, 27 May 2021 17:47:08 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-08/</guid>
+      <description>编写测试 先创建一个新的库项目
+cargo new adder --lib 会自动生成src/lib.rs
+#[cfg(test)] mod tests { #[test] fn it_works() { assert_eq!(2 + 2, 4); } } </description>
+    </item>
+    
+    <item>
+      <title>Rust泛型、trait与生命周期</title>
+      <link>https://jinjiang.life/posts/rust-07/</link>
+      <pubDate>Tue, 25 May 2021 13:35:57 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-07/</guid>
+      <description>泛型数据类型 在函数定义中使用泛型
+下面代码有两个函数，找出最大的数字和字母的
+fn largest_i32(list: &amp;amp;[i32]) -&amp;gt; i32 { let mut largest = list[0]; for &amp;amp;item in list.iter() { if item &amp;gt; largest { largest = item; } } largest } fn largest_char(list: &amp;amp;[char]) -&amp;gt; char { let mut largest = list[0]; for &amp;amp;item in list.iter() { if item &amp;gt; largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest_i32(&amp;amp;number_list); println!</description>
+    </item>
+    
+    <item>
+      <title>Rust错误处理</title>
+      <link>https://jinjiang.life/posts/rust-06/</link>
+      <pubDate>Tue, 25 May 2021 11:22:11 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-06/</guid>
+      <description>panic!与不可恢复的错误 调用panic!
+fn main() { panic!(&amp;#34;crash and burn&amp;#34;); } Result与可恢复的错误 use std::fs::File; fn main() { let f = File::open(&amp;#34;hello.txt&amp;#34;); let f = match f { Ok(file) =&amp;gt; file, Err(error) =&amp;gt; { panic!(&amp;#34;Problem opening the file: {:?}&amp;#34;, error) }, }; } 匹配不同的错误
+use std::fs::File; use std::io::ErrorKind; fn main() { let f = File::open(&amp;#34;hello.txt&amp;#34;); let f = match f { Ok(file) =&amp;gt; file, Err(error) =&amp;gt; match error.kind() { ErrorKind::NotFound =&amp;gt; match File::create(&amp;#34;hello.txt&amp;#34;) { Ok(fc) =&amp;gt; fc, Err(e) =&amp;gt; panic!</description>
+    </item>
+    
+    <item>
+      <title>Rust集合</title>
+      <link>https://jinjiang.life/posts/rust-05/</link>
+      <pubDate>Sun, 23 May 2021 11:48:49 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-05/</guid>
+      <description>vector vector在内存中是连续的，只能存储相同类型的值
+新建vector
+let v: Vec&amp;lt;i32&amp;gt; = Vec::new(); 或者使用rust提供的vec!宏来新建一个vector
+let v = vec![1, 2, 3]; 更新vector
+let mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素
+let v = vec![1, 2, 3, 4, 5]; let third: &amp;amp;i32 = &amp;amp;v[2]; println!(&amp;#34;The third element is {}&amp;#34;, third); match v.get(2) { Some(third) =&amp;gt; println!(&amp;#34;The third element is {}&amp;#34;, third), None =&amp;gt; println!(&amp;#34;There is no third element.&amp;#34;), } 下面代码会报错
+let mut v = vec![1, 2, 3, 4, 5]; let first = &amp;amp;v[0]; v.</description>
+    </item>
+    
+    <item>
+      <title>Rust枚举和模式匹配</title>
+      <link>https://jinjiang.life/posts/rust-04/</link>
+      <pubDate>Sat, 22 May 2021 20:03:35 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-04/</guid>
+      <description>枚举 定义枚举
+enum IpAddrKind { V4, V6, } 枚举值
+let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+如函数：
+fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
+route(IpAddrKind::V4); route(IpAddrKind::V6); match控制流运算符 enum Coin { Penny, Nickel, Dime, Quarter, } let a = Coin::Penny; let b = match a { Coin::Penny =&amp;gt; 1, Coin::Nickel =&amp;gt; 5, Coin::Dime =&amp;gt; 10, Coin::Quarter =&amp;gt; 25, }; println!(&amp;#34;{}&amp;#34;, b); let c = match a { Coin::Penny =&amp;gt; { println!</description>
+    </item>
+    
+    <item>
+      <title>Rust结构体</title>
+      <link>https://jinjiang.life/posts/rust-03/</link>
+      <pubDate>Sat, 15 May 2021 12:33:56 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-03/</guid>
+      <description>结构体 定义结构体
+struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
+let mut user1 = User { email: String::from(&amp;#34;Murphy.W.Zhu@aliyun.com&amp;#34;), username: String::from(&amp;#34;Murphy.W.Zhu&amp;#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&amp;#34;Murphy.W.Zhu@aliyun.com&amp;#34;); 返回结构体
+fn build_user(email: String, username: String) -&amp;gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
+fn build_user(email: String, username: String) -&amp;gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo在github上搭建博客</title>
+      <link>https://jinjiang.life/posts/hugo-00/</link>
+      <pubDate>Sun, 25 Apr 2021 11:29:00 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/hugo-00/</guid>
+      <description>Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugo是一个静态网页框架，可以快速生成网页，并且拥有许多的主题
+安装Hugo 在archlinux中
+sudo pacman -S hugo 使用源码安装
+需要有git和go(&amp;gt;=1.11)
+mkdir $HOME/src cd $HOME/src git clone https://github.com/gohugoio/hugo.git cd hugo go install --tags extended % hugo version hugo v0.82.0+extended linux/amd64 BuildDate=unknown 创建网站 先在github上新建一个项目
+然后新建一个hugo网站项目
+hugo new site blog -f yml 初始化git，并设置默认分支名为main
+git init git branch -m main 设置主题，这里设置PaperMod主题</description>
+    </item>
+    
+    <item>
+      <title>Rust所有权</title>
+      <link>https://jinjiang.life/posts/rust-02/</link>
+      <pubDate>Wed, 21 Apr 2021 21:45:28 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-02/</guid>
+      <description>所有权 所有权是rust的核心之一
+它有如下规则
+1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明 let s = &amp;#34;hello&amp;#34;; // 从此处起，s 是有效的 // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
+let s = String::from(&amp;#34;hello&amp;#34;); 对于栈上的数据rust直接复制了
+let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
+如下代码会错误，因为s1无效了，所以发生了无效引用
+let s1 = String::from(&amp;#34;hello&amp;#34;); let s2 = s1; println!(&amp;#34;{}, world!&amp;#34;, s1); 如果要复制String的数据可以使用clone
+let s1 = String::from(&amp;#34;hello&amp;#34;); let s2 = s1.clone(); println!</description>
+    </item>
+    
+    <item>
+      <title>Rust常见编程概念</title>
+      <link>https://jinjiang.life/posts/rust-01/</link>
+      <pubDate>Wed, 21 Apr 2021 14:55:05 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-01/</guid>
+      <description>不变变量 以下程序理所当然的输出5
+fn main() { let a = 5; println!(&amp;#34;{}&amp;#34;, a); } 而当你尝试改变a的值时
+fn main() { let a = 5; a = 6; println!(&amp;#34;{}&amp;#34;, a); } 则会出现错误
+error[E0384]: cannot assign twice to immutable variable `a` --&amp;gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议</description>
+    </item>
+    
+    <item>
+      <title>Rust初试</title>
+      <link>https://jinjiang.life/posts/rust-00/</link>
+      <pubDate>Wed, 21 Apr 2021 13:58:22 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-00/</guid>
+      <description>Rust 据官网说介绍rust是一门高性能，高可靠的编程语言，最主要的特点就是安全可靠，据悉Linux内核都在考虑是否用rust代替C
+Rust安装 可以使用官方的rustup来安装rust以及其他工具
+sudo pacman -S rustup 设置rustup的下载源
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup 安装rust
+rustup install stable rustup component add rust-src Helloworld
+Code % cargo new hello-world Created binary (application) `hello-world` package Code % cd hello-world hello-world[master*] % ls Cargo.toml src hello-world[master*] % cargo run Compiling hello-world v0.1.0 (/home/murphy/Code/hello-world) Finished dev [unoptimized + debuginfo] target(s) in 1.15s Running `target/debug/hello-world` Hello, world! Rust IDE rust还没有官方的IDE，我使用Clion的rust插件来写</description>
+    </item>
+    
+    
+  </channel>
+</rss>

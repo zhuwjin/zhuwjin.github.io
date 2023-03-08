@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rust on 锦酱的博客</title>
+    <link>https://jinjiang.life/tags/rust/</link>
+    <description>Recent content in Rust on 锦酱的博客</description>
+    <image>
+      <title>锦酱的博客</title>
+      <url>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 06 Jun 2021 17:28:35 +0800</lastBuildDate><atom:link href="https://jinjiang.life/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust并发</title>
+      <link>https://jinjiang.life/posts/rust-11/</link>
+      <pubDate>Sun, 06 Jun 2021 17:28:35 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-11/</guid>
+      <description>线程 使用spawn创建新线程
+use std::thread; use std::time::Duration; fn main() { thread::spawn(|| { for i in 1..10 { println!(&amp;#34;hi number {} from the spawned thread!&amp;#34;, i); thread::sleep(Duration::from_millis(1)); } }); for i in 1..5 { println!(&amp;#34;hi number {} from the main thread!&amp;#34;, i); thread::sleep(Duration::from_millis(1)); } } 程序会输出
+hi number 1 from the main thread! hi number 1 from the spawned thread! hi number 2 from the main thread! hi number 2 from the spawned thread!</description>
+    </item>
+    
+    <item>
+      <title>Rust智能指针</title>
+      <link>https://jinjiang.life/posts/rust-10/</link>
+      <pubDate>Sat, 05 Jun 2021 18:51:39 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-10/</guid>
+      <description>使用Box&amp;lt;T&amp;gt;指向堆上的数据 使用box在堆上储存一个i32
+b是一个指向被分配在堆上的值5的Box
+fn main() { let b = Box::new(5); println!(&amp;#34;b = {}&amp;#34;, b); } 用Box&amp;lt;T&amp;gt;可以实现类似链表的结构
+#[derive(Debug)] enum List { Cons(i32, Box&amp;lt;List&amp;gt;), Nil, } use crate::List::{Cons, Nil}; fn main() { let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); println!(&amp;#34;{:?}&amp;#34;, list) } 通过Deref trait将智能指针当作常规引用处理 通过解引用运算符追踪指针的值 常规引用是一个指针类型，一种理解指针的方式是将其看成指向储存在其他某处值的箭头。
+fn main() { let x = 5; let y = &amp;amp;x; assert_eq!(5, x); assert_eq!(5, *y); } 如果使用下面的代码则会出错
+fn main() { let x = 5; let y = &amp;amp;x; assert_eq!</description>
+    </item>
+    
+    <item>
+      <title>Rust迭代器与闭包</title>
+      <link>https://jinjiang.life/posts/rust-09/</link>
+      <pubDate>Sat, 05 Jun 2021 18:51:13 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-09/</guid>
+      <description>闭包：可以捕获环境的匿名函数 Rust 的 闭包（closures）是可以保存进变量或作为参数传递给其他函数的匿名函数。可以在一个地方创建闭包，然后在不同的上下文中执行闭包运算。不同于函数，闭包允许捕获调用者作用域中的值。我们将展示闭包的这些功能如何复用代码和自定义行为。
+使用闭包创建行为的抽象 use std::thread; use std::time::Duration; fn simulated_expensive_calculation(intensity: u32) -&amp;gt; u32 { println!(&amp;#34;calculating slowly...&amp;#34;); thread::sleep(Duration::from_secs(2)); intensity } </description>
+    </item>
+    
+    <item>
+      <title>Rust测试</title>
+      <link>https://jinjiang.life/posts/rust-08/</link>
+      <pubDate>Thu, 27 May 2021 17:47:08 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-08/</guid>
+      <description>编写测试 先创建一个新的库项目
+cargo new adder --lib 会自动生成src/lib.rs
+#[cfg(test)] mod tests { #[test] fn it_works() { assert_eq!(2 + 2, 4); } } </description>
+    </item>
+    
+    <item>
+      <title>Rust泛型、trait与生命周期</title>
+      <link>https://jinjiang.life/posts/rust-07/</link>
+      <pubDate>Tue, 25 May 2021 13:35:57 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-07/</guid>
+      <description>泛型数据类型 在函数定义中使用泛型
+下面代码有两个函数，找出最大的数字和字母的
+fn largest_i32(list: &amp;amp;[i32]) -&amp;gt; i32 { let mut largest = list[0]; for &amp;amp;item in list.iter() { if item &amp;gt; largest { largest = item; } } largest } fn largest_char(list: &amp;amp;[char]) -&amp;gt; char { let mut largest = list[0]; for &amp;amp;item in list.iter() { if item &amp;gt; largest { largest = item; } } largest } fn main() { let number_list = vec![34, 50, 25, 100, 65]; let result = largest_i32(&amp;amp;number_list); println!</description>
+    </item>
+    
+    <item>
+      <title>Rust错误处理</title>
+      <link>https://jinjiang.life/posts/rust-06/</link>
+      <pubDate>Tue, 25 May 2021 11:22:11 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-06/</guid>
+      <description>panic!与不可恢复的错误 调用panic!
+fn main() { panic!(&amp;#34;crash and burn&amp;#34;); } Result与可恢复的错误 use std::fs::File; fn main() { let f = File::open(&amp;#34;hello.txt&amp;#34;); let f = match f { Ok(file) =&amp;gt; file, Err(error) =&amp;gt; { panic!(&amp;#34;Problem opening the file: {:?}&amp;#34;, error) }, }; } 匹配不同的错误
+use std::fs::File; use std::io::ErrorKind; fn main() { let f = File::open(&amp;#34;hello.txt&amp;#34;); let f = match f { Ok(file) =&amp;gt; file, Err(error) =&amp;gt; match error.kind() { ErrorKind::NotFound =&amp;gt; match File::create(&amp;#34;hello.txt&amp;#34;) { Ok(fc) =&amp;gt; fc, Err(e) =&amp;gt; panic!</description>
+    </item>
+    
+    <item>
+      <title>Rust集合</title>
+      <link>https://jinjiang.life/posts/rust-05/</link>
+      <pubDate>Sun, 23 May 2021 11:48:49 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-05/</guid>
+      <description>vector vector在内存中是连续的，只能存储相同类型的值
+新建vector
+let v: Vec&amp;lt;i32&amp;gt; = Vec::new(); 或者使用rust提供的vec!宏来新建一个vector
+let v = vec![1, 2, 3]; 更新vector
+let mut v = Vec::new();//需要可变才能改变 v.push(5); 读取vector的元素
+let v = vec![1, 2, 3, 4, 5]; let third: &amp;amp;i32 = &amp;amp;v[2]; println!(&amp;#34;The third element is {}&amp;#34;, third); match v.get(2) { Some(third) =&amp;gt; println!(&amp;#34;The third element is {}&amp;#34;, third), None =&amp;gt; println!(&amp;#34;There is no third element.&amp;#34;), } 下面代码会报错
+let mut v = vec![1, 2, 3, 4, 5]; let first = &amp;amp;v[0]; v.</description>
+    </item>
+    
+    <item>
+      <title>Rust枚举和模式匹配</title>
+      <link>https://jinjiang.life/posts/rust-04/</link>
+      <pubDate>Sat, 22 May 2021 20:03:35 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-04/</guid>
+      <description>枚举 定义枚举
+enum IpAddrKind { V4, V6, } 枚举值
+let four = IpAddrKind::V4; let six = IpAddrKind::V6; 他们的类型都是IpAddrKind
+如函数：
+fn rout(ip_type: IpAddrKind) { } 可以向下面一样调用
+route(IpAddrKind::V4); route(IpAddrKind::V6); match控制流运算符 enum Coin { Penny, Nickel, Dime, Quarter, } let a = Coin::Penny; let b = match a { Coin::Penny =&amp;gt; 1, Coin::Nickel =&amp;gt; 5, Coin::Dime =&amp;gt; 10, Coin::Quarter =&amp;gt; 25, }; println!(&amp;#34;{}&amp;#34;, b); let c = match a { Coin::Penny =&amp;gt; { println!</description>
+    </item>
+    
+    <item>
+      <title>Rust结构体</title>
+      <link>https://jinjiang.life/posts/rust-03/</link>
+      <pubDate>Sat, 15 May 2021 12:33:56 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-03/</guid>
+      <description>结构体 定义结构体
+struct User { username: String, email: String, sign_in_count: u64, active: bool, } 创建结构体实例
+let mut user1 = User { email: String::from(&amp;#34;Murphy.W.Zhu@aliyun.com&amp;#34;), username: String::from(&amp;#34;Murphy.W.Zhu&amp;#34;), active: true, sign_in_count: 1, }; 改变实例属性
+user1.email = String::from(&amp;#34;Murphy.W.Zhu@aliyun.com&amp;#34;); 返回结构体
+fn build_user(email: String, username: String) -&amp;gt; User { User { email: email, username: username, active: true, sign_in_count: 1, } } 变量与字段同名是的字段初始化简写语法
+fn build_user(email: String, username: String) -&amp;gt; User { User { email, username, active: true, sign_in_count: 1, } } 使用结构体更新语法从其他实例创建实例</description>
+    </item>
+    
+    <item>
+      <title>Rust所有权</title>
+      <link>https://jinjiang.life/posts/rust-02/</link>
+      <pubDate>Wed, 21 Apr 2021 21:45:28 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-02/</guid>
+      <description>所有权 所有权是rust的核心之一
+它有如下规则
+1、Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。 2、值在任一时刻有且只有一个所有者。 3、当所有者（变量）离开作用域，这个值将被丢弃。 变量作用域 #![allow(unused)] fn main() { { // s 在这里无效, 它尚未声明 let s = &amp;#34;hello&amp;#34;; // 从此处起，s 是有效的 // 使用 s } // 此作用域已结束，s 不再有效 } String类型 之前的类型都是栈上的，现在需要一个堆上的类型，String就是我们需要的类型
+let s = String::from(&amp;#34;hello&amp;#34;); 对于栈上的数据rust直接复制了
+let x = 5; let y = x; 对于堆上的数据，rust将原来的内存给了之后的，而原来的就无效了
+如下代码会错误，因为s1无效了，所以发生了无效引用
+let s1 = String::from(&amp;#34;hello&amp;#34;); let s2 = s1; println!(&amp;#34;{}, world!&amp;#34;, s1); 如果要复制String的数据可以使用clone
+let s1 = String::from(&amp;#34;hello&amp;#34;); let s2 = s1.clone(); println!</description>
+    </item>
+    
+    <item>
+      <title>Rust常见编程概念</title>
+      <link>https://jinjiang.life/posts/rust-01/</link>
+      <pubDate>Wed, 21 Apr 2021 14:55:05 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-01/</guid>
+      <description>不变变量 以下程序理所当然的输出5
+fn main() { let a = 5; println!(&amp;#34;{}&amp;#34;, a); } 而当你尝试改变a的值时
+fn main() { let a = 5; a = 6; println!(&amp;#34;{}&amp;#34;, a); } 则会出现错误
+error[E0384]: cannot assign twice to immutable variable `a` --&amp;gt; src/main.rs:3:5 | 2 | let a = 5; | - | | | first assignment to `a` | help: make this binding mutable: `mut a` 3 | a = 6; | ^^^^^ cannot assign twice to immutable variable rust会很人性化的提示你哪里错了，还会给出建议</description>
+    </item>
+    
+    <item>
+      <title>Rust初试</title>
+      <link>https://jinjiang.life/posts/rust-00/</link>
+      <pubDate>Wed, 21 Apr 2021 13:58:22 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/rust-00/</guid>
+      <description>Rust 据官网说介绍rust是一门高性能，高可靠的编程语言，最主要的特点就是安全可靠，据悉Linux内核都在考虑是否用rust代替C
+Rust安装 可以使用官方的rustup来安装rust以及其他工具
+sudo pacman -S rustup 设置rustup的下载源
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup 安装rust
+rustup install stable rustup component add rust-src Helloworld
+Code % cargo new hello-world Created binary (application) `hello-world` package Code % cd hello-world hello-world[master*] % ls Cargo.toml src hello-world[master*] % cargo run Compiling hello-world v0.1.0 (/home/murphy/Code/hello-world) Finished dev [unoptimized + debuginfo] target(s) in 1.15s Running `target/debug/hello-world` Hello, world! Rust IDE rust还没有官方的IDE，我使用Clion的rust插件来写</description>
+    </item>
+    
+  </channel>
+</rss>

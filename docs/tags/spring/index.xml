@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Spring on 锦酱的博客</title>
+    <link>https://jinjiang.life/tags/spring/</link>
+    <description>Recent content in Spring on 锦酱的博客</description>
+    <image>
+      <title>锦酱的博客</title>
+      <url>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jinjiang.life/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 16 Feb 2022 21:12:45 +0800</lastBuildDate><atom:link href="https://jinjiang.life/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java SpringMVC</title>
+      <link>https://jinjiang.life/posts/java-springmvc/</link>
+      <pubDate>Wed, 16 Feb 2022 21:12:45 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/java-springmvc/</guid>
+      <description>〇、SpringMVC 一、Hello SpringMVC 1.0、创建项目 创建一个maven项目，并在pom.xml中进行配置
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;life.jinjiang&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;LearnSpringMVC&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;!--定义打包方式为war包--&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;17&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;17&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;!--使用spring版本为5.3.15--&amp;gt; &amp;lt;spring.version&amp;gt;5.3.15&amp;lt;/spring.version&amp;gt; &amp;lt;thymeleaf.version&amp;gt;3.0.14.RELEASE&amp;lt;/thymeleaf.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-webmvc&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-spring5&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${thymeleaf.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;!--使用war的打包插件--&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-war-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.3.2&amp;lt;/version&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt; &amp;lt;/project&amp;gt; 1.1、配置web.xml 在main目录下创建一个webapp/WEB-INF目录，并在其中创建web.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xmlns=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee&amp;#34; xsi:schemaLocation=&amp;#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_0.xsd&amp;#34; version=&amp;#34;3.0&amp;#34;&amp;gt; &amp;lt;!--配置servlet--&amp;gt; &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;SpringMVC&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;classpath:springMVC.xml&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;!--配置启动时创建类--&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>Spring Aop</title>
+      <link>https://jinjiang.life/posts/spring-aop/</link>
+      <pubDate>Thu, 10 Feb 2022 14:01:50 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/spring-aop/</guid>
+      <description>〇、AOP 面向切面编程。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。不修改原代码添加新功能。
+一、AOP底层原理 AOP底层使用动态代理。
+1、JDK动态代理 public interface Student { void say_hello(); int add(int a, int b); } public class StudentImpl implements Student{ @Override public void say_hello() { System.out.println(&amp;#34;Hello&amp;#34;); } @Override public int add(int a, int b) { return a + b; } } public class MainApplication { public static void main(String[] args) { Student student = new StudentImpl(); Class[] interfaces = {Student.class}; Student student1 = (Student) Proxy.newProxyInstance(MainApplication.class.getClassLoader(), interfaces, new MyStudentProxy(student)); student1.</description>
+    </item>
+    
+    <item>
+      <title>Spring Bean</title>
+      <link>https://jinjiang.life/posts/spring-bean/</link>
+      <pubDate>Tue, 08 Feb 2022 14:45:56 +0800</pubDate>
+      
+      <guid>https://jinjiang.life/posts/spring-bean/</guid>
+      <description>〇、IOC控制反转 把对象创建和对象之间的调用交给Spring进行管理，降低耦合度。
+xml解析、工厂模式、反射。
+一、Bean（使用xml） 1.0、使用Bean创建对象 1.0.0、准备对象 public class User { private String name; private int age; public User(String name, int age) { this.name = name; this.age = age; } public String getName() { return name; } public void setName(String name) { this.name = name; } public User() {} public int getAge() { return age; } public void setAge(int age) { this.age = age; } @Override public String toString() { return &amp;#34;User{&amp;#34; + &amp;#34;name=&amp;#39;&amp;#34; + name + &amp;#39;\&amp;#39;&amp;#39; + &amp;#34;, age=&amp;#34; + age + &amp;#39;}&amp;#39;; } } public class MainApplication { public static void main(String[] args) { ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(&amp;#34;Bean.</description>
+    </item>
+    
+  </channel>
+</rss>
