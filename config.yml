@@ -19,7 +19,7 @@ params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     title: 锦酱的博客
     description: "ExampleSite description"
-    keywords: [Blog, Portfolio, PaperMod]
+    keywords: [Blog]
     author: Me
     # author: ["Me", "You"] # multiple authors
     images: ["<link or path of image for opengraph, twitter-cards>"]
@@ -74,13 +74,13 @@ params:
         Title: "Hi there \U0001F44B"
         Content: Welcome to my blog
 
-    #socialIcons:
-        #- name: bilibili
-          #url: "https://www.bilibili.com/"
-        #- name: stackoverflow
-          #url: "https://stackoverflow.com"
-        #- name: github
-          #url: "https://github.com/jinjiang5"
+    socialIcons:
+        - name: bilibili
+          url: "https://www.bilibili.com/"
+        - name: stackoverflow
+          url: "https://stackoverflow.com"
+        - name: github
+          url: "https://github.com/jinjiang5"
 
     analytics:
         google:
